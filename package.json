@@ -1,0 +1,20 @@
+{
+  "name": "poolbase",
+  "version": "0.1.0",
+  "description": "Information pool for groups and companies",
+  "private": true,
+  "workspaces": [
+    "./packages/*"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
+  "license": "MIT",
+  "dependencies": {
+    "docsify": "^4.9.4",
+    "docsify-cli": "^4.3.0"
+  }
+}
