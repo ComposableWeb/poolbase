@@ -13,8 +13,9 @@
   "keywords": [],
   "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "docsify": "^4.9.4",
-    "docsify-cli": "^4.3.0"
+    "docsify-cli": "^4.3.0",
+    "lerna": "^3.16.4"
   }
 }
