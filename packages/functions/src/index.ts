@@ -11,6 +11,6 @@ export const savePage = functions.https.onRequest(async (request, response) => {
     .firestore()
     .collection('pages')
     .add(requestData);
-  // Send back a message that we've succesfully written the message
+  // Send back a message that we've successfully written the message
   response.json({ result: `Page with url: ${writeResult.id} added.` });
 });

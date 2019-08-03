@@ -12,7 +12,7 @@ You just chuck in the links to what interests you and your group and a knowledge
 
 - [ ] Chrome + FF ext
 - [ ] Elastic search srv
-- [ ] Firebase?
+- [ ] Firebase
 - [ ] Nlp
 - [ ] Bot - slack, ms teams, telegram, whatsapp
 - [ ] tf idf analysis
@@ -20,3 +20,4 @@ You just chuck in the links to what interests you and your group and a knowledge
 - [ ] groups by invite
 - [ ] companies by email tld
 - [ ] newsletter email ingestion
+- [ ] data transform plugins (e.g. cooking recipe)
