@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "poolbase-123"
+  },
+  "targets": {
+    "poolbase-123": {
+      "hosting": {
+        "app": [
+          "poolbase-123"
+        ],
+        "landing": [
+          "poolbase-landing"
+        ]
+      }
+    }
   }
 }

@@ -1,0 +1,44 @@
+{
+  "name": "poolbase-app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next src/app",
+    "clean": "rimraf \"../../dist/app\"",
+    "build-app": "next build \"src/app\"",
+    "build-functions": "tsc --project src/functions",
+    "build-public": "cpx \"src/public/**/*.*\" \"../../dist/app/public\" -C",
+    "prebuild-install-deps": "cpx \"*{package.json,package-lock.json,yarn.lock}\" \"../../dist/app/functions\" -C",
+    "build-install-deps": "cd \"../../dist/app/functions\" && yarn install",
+    "prebuild": "yarn clean",
+    "build": "yarn build-app && yarn build-functions && yarn build-public && yarn prebuild-install-deps",
+    "typecheck-app": "tsc --project src/app"
+  },
+  "keywords": [],
+  "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
+  "license": "MIT",
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0",
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.5.0",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "cpx": "1.5.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "rimraf": "3.0.0",
+    "typescript": "^3.7.5"
+  }
+}

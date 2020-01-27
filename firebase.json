@@ -4,17 +4,37 @@
     "indexes": "firestore.indexes.json"
   },
   "functions": {
-    "source": "packages/functions",
-    "predeploy": ["npx lerna --scope functions run build"]
+    "source": "dist/app/functions",
+    "predeploy": ["npx lerna --scope poolbase-app run build"]
   },
-  "hosting": {
-    "public": "packages/app/public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "app",
+      "public": "dist/app/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/firebase-api/save-page",
+          "function": "savePage"
+        },
+        {
+          "source": "**/**",
+          "function": "next"
+        }
+      ],
+      "predeploy": "npx lerna --scope poolbase-app run build-public"
+    },
+    {
+      "target": "landing",
+      "public": "dist/landing/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "predeploy": "npx lerna --scope poolbase-landing run build"
+    }
+  ]
 }

@@ -25,7 +25,7 @@ chrome.browserAction.onClicked.addListener(function(tab): void {
   // Send a message to the active tab
   chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs): void {
     const activeTab = tabs[0];
-    const response = await savePage(activeTab.url, activeTab.title);
+    const response = await savePage<{}>(activeTab.url, activeTab.title);
     console.log(response);
     chrome.tabs.sendMessage(activeTab.id, {
       message: 'clicked_browser_action',

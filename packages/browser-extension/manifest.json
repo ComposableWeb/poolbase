@@ -15,5 +15,5 @@
     "scripts": ["dist/background.js"]
   },
   "permissions": ["tabs"],
-  "homepage_url": "https://poolbase.fyi"
+  "homepage_url": "https://app.poolbase.fyi"
 }
