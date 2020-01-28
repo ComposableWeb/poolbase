@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { NextPage } from 'next';
+import { Styled } from 'theme-ui';
+
 
 const HomePage: NextPage = () => {
   return (
-    <div>Welcome</div>
+    <Styled.h1>Welcome</Styled.h1>
   );
 }
 
