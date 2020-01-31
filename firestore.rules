@@ -1,7 +1,10 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write;
+    match /pages/{pageId} {
+      allow read, create: if request.auth != null;
+      allow update: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid; // TODO: add group level permissions
+      allow delete: if false;
     }
   }
 }
