@@ -1,7 +1,6 @@
 'use strict';
 
 require('./env.js');
-console.log(process.env.FIREBASE_AUTH_DOMAIN);
 
 module.exports = {
   distDir: '../../../../dist/app/functions/next',
