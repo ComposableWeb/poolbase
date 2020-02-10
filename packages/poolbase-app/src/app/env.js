@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // Responsible for setting environment variables.
 // Note: this isn't strictly required for this example – you can
 // inline your Firebase config or set environment variables howevever
@@ -7,11 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const { NODE_ENV } = process.env
+const { NODE_ENV } = process.env;
 if (!NODE_ENV) {
-  throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
-  )
+  throw new Error('The NODE_ENV environment variable is required but was not specified.');
 }
 
 // Set env vars from appropiate `.env` files. We're following the
@@ -26,14 +25,13 @@ const dotEnvFiles = [
   // Don't include `.env.local` for the test environment.
   NODE_ENV !== 'test' && `${dotEnvPath}.local`,
   dotEnvPath,
-].filter(Boolean)
-
+].filter(Boolean);
 
 dotEnvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
     // eslint-disable-next-line global-require
     require('dotenv').config({
       path: dotenvFile,
-    })
+    });
   }
-})
+});

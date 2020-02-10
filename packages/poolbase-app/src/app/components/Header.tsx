@@ -1,14 +1,18 @@
 import React from 'react';
 import { useColorMode } from 'theme-ui';
 import Router from 'next/router';
-
+import { AuthUser } from '../interfaces';
 import logout from '../utils/auth/logout';
 
-export default function Header({authUser}) {
+interface PropsWithAuthUser {
+  AuthUser: AuthUser;
+}
+
+export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
     <header>
-      <p>You're signed in. Email: {authUser.email}</p>
+      <p>You're signed in. Email: {AuthUser.email}</p>
       <p
         style={{
           display: 'inlinelock',
@@ -16,7 +20,7 @@ export default function Header({authUser}) {
           textDecoration: 'underline',
           cursor: 'pointer',
         }}
-        onClick={async () => {
+        onClick={async (): Promise<void> => {
           try {
             await logout();
             Router.push('/');
@@ -27,7 +31,7 @@ export default function Header({authUser}) {
       >
         Log out
       </p>
-      <button onClick={() => setColorMode(colorMode === 'light' ? 'dark' : 'light')}>
+      <button onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')}>
         Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
       </button>
     </header>

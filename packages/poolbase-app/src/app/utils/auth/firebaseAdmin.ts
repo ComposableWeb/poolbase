@@ -1,7 +1,7 @@
-import * as admin from 'firebase-admin'
+import * as admin from 'firebase-admin';
 
-export const verifyIdToken = token => {
-  const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY
+export const verifyIdToken = (token: string): Promise<admin.auth.DecodedIdToken | void> => {
+  const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
 
   if (!admin.apps.length) {
     admin.initializeApp({
@@ -11,13 +11,13 @@ export const verifyIdToken = token => {
         // https://stackoverflow.com/a/41044630/1332513
         privateKey: firebasePrivateKey.replace(/\\n/g, '\n'),
       }),
-    })
+    });
   }
 
   return admin
     .auth()
     .verifyIdToken(token)
-    .catch(error => {
-      throw error
-    })
-}
+    .catch((error): void => {
+      throw error;
+    });
+};

@@ -1,15 +1,14 @@
-import React, { Props } from 'react';
+import * as React from 'react';
 import { get } from 'lodash/object';
-import Link from 'next/link';
-import { Styled } from 'theme-ui';
-
-
+import { NextPage } from 'next';
 import { PropsWithAuthUserInfo } from '../interfaces';
 import withAuthUserInfo from '../utils/pageWrappers/withAuthUserInfo';
 import Header from './Header';
 import FirebaseAuth from './FirebaseAuth';
 
-const PageLayout: React.FC<PropsWithAuthUserInfo> = props => {
+const PageLayout: NextPage<PropsWithAuthUserInfo> = (
+  props: PropsWithAuthUserInfo & { children: JSX.Element }
+): JSX.Element => {
   const { AuthUserInfo, children } = props;
   const AuthUser = get(AuthUserInfo, 'AuthUser', null);
   return (
@@ -23,7 +22,7 @@ const PageLayout: React.FC<PropsWithAuthUserInfo> = props => {
         </div>
       ) : (
         <div>
-          <Header authUser={AuthUser} />
+          <Header AuthUser={AuthUser} />
           <div>{children}</div>
         </div>
       )}

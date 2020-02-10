@@ -5,11 +5,11 @@ import { ThemeProvider } from 'theme-ui';
 import theme from '../theme';
 
 class MyApp extends App {
-  render() {
+  public render(): JSX.Element {
     const { Component, pageProps } = this.props;
     return (
       <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+        <Component {...pageProps} />
       </ThemeProvider>
     );
   }

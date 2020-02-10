@@ -1,22 +1,21 @@
 /* eslint react/no-danger: 0 */
-import React from 'react'
-import PropTypes from 'prop-types'
-import { get } from 'lodash/object'
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
+import { get } from 'lodash/object';
+import Document, { DocumentContext, Html, Head, Main, NextScript, DocumentInitialProps } from 'next/document';
 
-type CustomDocumentProps = {
+interface CustomDocumentProps extends DocumentInitialProps {
   AuthUserInfo: {
     AuthUser: {
       id: string;
       email: string;
       emailVerified: boolean;
-    }
+    };
     token: string;
-  }
-};
+  };
+}
 
 export default class CustomDocument extends Document<CustomDocumentProps> {
-  static async getInitialProps(ctx: DocumentContext) {
+  public static async getInitialProps(ctx: DocumentContext): Promise<CustomDocumentProps> {
     // Get the AuthUserInfo object. This is set if the server-rendered page
     // is wrapped in the `withAuthUser` higher-order component.
     const AuthUserInfo = get(ctx, 'myCustomData.AuthUserInfo', null);
@@ -24,7 +23,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps, AuthUserInfo };
   }
-  render() {
+  public render(): JSX.Element {
     // Store initial props from request data that we need to use again on
     // the client. See:
     // https://github.com/zeit/next.js/issues/3043#issuecomment-334521241
