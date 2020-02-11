@@ -1,7 +1,8 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import next from 'next';
-/* TODO: refactor and improve
+/*
+TODO: refactor and improve
 - [ ] put firebase admin initialization in singleton module
 - [ ] create request validation function
 - [ ] create data validation function
@@ -10,10 +11,11 @@ import next from 'next';
 admin.initializeApp();
 
 export const savePage = functions.https.onRequest(
-  async (req, res): Promise<void> => {
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  async (req, res): Promise<void | functions.Response> => {
     // minimal requirement is URL
     if (!req.body.url) {
-      res.status(400).send('No url data provided');
+      return res.status(400).send('No url data provided');
     }
     const requestData: { title: string; url: string } = {
       ...req.body,
@@ -24,7 +26,7 @@ export const savePage = functions.https.onRequest(
       .collection('pages')
       .add(requestData);
     // Send back a message that we've successfully written the message
-    res.json({ result: `Page with url: ${writeResult.id} added.` });
+    return res.json({ result: `Page with url: ${writeResult.id} added.` });
   }
 );
 
@@ -33,7 +35,8 @@ const app = next({ dev, conf: { distDir: 'next' } });
 const handle = app.getRequestHandler();
 
 exports.next = functions.https.onRequest(
-  async (req, res): Promise<void> => {
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  async (req, res): Promise<void | Response> => {
     console.log('File: ' + req.originalUrl); // log the page.js file that is being requested
     await app.prepare();
     handle(req, res);

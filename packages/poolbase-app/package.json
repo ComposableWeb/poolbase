@@ -16,7 +16,9 @@
     "typecheck-app": "tsc --project src/app",
     "typecheck-functions": "tsc --project src/functions",
     "type-check": "yarn typecheck-app && yarn typecheck-functions",
-    "lint": "eslint './src'"
+    "lint-app": "eslint './src/app/'",
+    "lint-functions": "eslint -c './src/functions/.eslintrc.js' './src/functions/index.ts'",
+    "lint": "yarn lint-app && yarn lint-functions"
   },
   "keywords": [],
   "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",

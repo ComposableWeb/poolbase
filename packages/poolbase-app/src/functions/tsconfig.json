@@ -13,5 +13,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "compileOnSave": true
+  "compileOnSave": true,
+  "include": ["index.ts", "**/*.ts"]
 }
