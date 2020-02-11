@@ -13,18 +13,18 @@
   "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "0.0.86",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@types/chrome": "0.0.94",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
     "copy-webpack-plugin": "^5.0.4",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.2",
     "ts-loader": "^6.0.4",
-    "typescript": "~3.5.3",
-    "webpack": "~4.38.0",
-    "webpack-cli": "~3.3.6",
+    "typescript": "~3.7.5",
+    "webpack": "~4.41.5",
+    "webpack-cli": "~4.0.0-beta.2",
     "webpack-merge": "~4.2.1"
   }
 }
