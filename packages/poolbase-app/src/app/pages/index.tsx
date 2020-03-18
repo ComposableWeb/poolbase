@@ -30,6 +30,7 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps): JSX.Element =>
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 HomePage.getInitialProps = async (): Promise<{ data: Datum[] }> => {
   const db = firebase.firestore();
   const snapshot = await db.collection('pages').get();

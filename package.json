@@ -9,9 +9,9 @@
   "main": "index.js",
   "scripts": {
     "deploy": "firebase deploy",
-    "build-install-deps": "cd \"dist/app/functions\" && yarn install",
-    "preserve": "npx lerna --scope poolbase-app run build && yarn build-install-deps && npx lerna --scope poolbase-landing run build",
-    "serve": "cross-env NODE_ENV=production firebase serve",
+    "install-deps": "cd \"dist/app/functions\" && yarn install",
+    "preserve": "npx lerna --scope poolbase-app run build && yarn install-deps && npx lerna --scope poolbase-landing run build",
+    "serve": "cross-env NODE_ENV=production dotenv -e ./packages/poolbase-app/src/app/.env -e ./packages/poolbase-app/src/app/.env.local firebase serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,9 +19,10 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "7.0.0",
-    "firebase-tools": "^7.12.1",
     "docsify": "^4.10.2",
     "docsify-cli": "^4.4.0",
+    "dotenv-cli": "^3.1.0",
+    "firebase-tools": "^7.12.1",
     "lerna": "^3.20.2"
   }
 }
