@@ -1,5 +1,6 @@
+/** @jsx jsx */
 /* eslint react/no-danger: 0 */
-import React from 'react';
+import { jsx } from 'theme-ui';
 import { get } from 'lodash/object';
 import Document, { DocumentContext, Html, Head, Main, NextScript, DocumentInitialProps } from 'next/document';
 
@@ -31,7 +32,11 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
     // Alternatively, you could use a store, like Redux.
     const { AuthUserInfo } = this.props;
     return (
-      <Html>
+      <Html
+        sx={{
+          height: '100%',
+        }}
+      >
         <Head>
           <script
             id="__MY_AUTH_USER_INFO"
@@ -41,7 +46,14 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
             }}
           />
         </Head>
-        <body>
+        <body
+          sx={{
+            height: '100%',
+            '& > div': {
+              height: '100%',
+            }
+          }}
+        >
           <Main />
           <NextScript />
         </body>

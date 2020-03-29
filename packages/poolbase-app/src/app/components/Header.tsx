@@ -1,8 +1,11 @@
-import React from 'react';
-import { useColorMode } from 'theme-ui';
+/** @jsx jsx */
+import { jsx, IconButton, useColorMode } from 'theme-ui';
 import Router from 'next/router';
+
 import { AuthUser } from '../interfaces';
 import logout from '../utils/auth/logout';
+import Moon from '../../../../design-system/assets/svg/moon.svg';
+import Sun from '../../../../design-system/assets/svg/sun.svg';
 
 interface PropsWithAuthUser {
   AuthUser: AuthUser;
@@ -11,8 +14,14 @@ interface PropsWithAuthUser {
 export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
-    <header>
-      <p>You're signed in. Email: {AuthUser.email}</p>
+    <header
+      sx={{
+        bg: 'grayDark',
+      }}
+    >
+      <p sx={{
+        color: 'white',
+      }}>You're signed in. Email: {AuthUser.email}</p>
       <p
         style={{
           display: 'inlinelock',
@@ -31,9 +40,11 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
       >
         Log out
       </p>
-      <button onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')}>
-        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-      </button>
+      <IconButton sx={{
+        color: 'white',
+      }} onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')} aria-label={`Toggle ${colorMode === 'light' ? 'Dark' : 'Light'}`}>
+        {colorMode === 'light' ? <Moon /> : <Sun />}
+      </IconButton>
     </header>
   );
 }

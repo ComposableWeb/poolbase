@@ -1,4 +1,5 @@
-import * as React from 'react';
+/** @jsx jsx */
+import { jsx, Grid } from 'theme-ui';
 import { get } from 'lodash/object';
 import { NextPage } from 'next';
 import { PropsWithAuthUserInfo } from '../interfaces';
@@ -11,8 +12,9 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
 ): JSX.Element => {
   const { AuthUserInfo, children } = props;
   const AuthUser = get(AuthUserInfo, 'AuthUser', null);
+
   return (
-    <div>
+    <>
       {!AuthUser ? (
         <div>
           <p>Sign in</p>
@@ -21,12 +23,18 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
           </div>
         </div>
       ) : (
-        <div>
+        <Grid
+          gap={0}
+          columns={[0, '200px 1fr']}
+          sx={{
+            height: '100%',
+          }}
+        >
           <Header AuthUser={AuthUser} />
           <div>{children}</div>
-        </div>
+        </Grid>
       )}
-    </div>
+    </>
   );
 };
 
