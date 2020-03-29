@@ -125,12 +125,32 @@ export const buttons = {
       backgroundColor: `gray.1`,
     },
   },
+  icon: {
+    ...commonButtonStyles,
+    borderRadius: `full`,
+    color: `text`,
+    p: 0,
+    px: 0,
+    width: 4,
+    height: 4,
+    position: 'relative',
+    '& > svg': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      width: '100%',
+      height: '100%',
+    },
+  },
 };
 
 export const colors = {
   ...baseColors,
   grayDark: baseColors.gray[8],
   text: baseColors.gray[8],
+  textInverted: baseColors.gray[2],
   background: baseColors.white,
   primary: baseColors.blue[7],
   primaryHover: baseColors.blue[8],
@@ -146,6 +166,7 @@ export const colors = {
   modes: {
     dark: {
       text: baseColors.gray[2],
+      textInverted: baseColors.gray[3],
       background: baseColors.gray[9],
       primary: '#0cf',
       secondary: '#90c',

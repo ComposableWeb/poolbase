@@ -4,8 +4,9 @@ import Router from 'next/router';
 
 import { AuthUser } from '../interfaces';
 import logout from '../utils/auth/logout';
-import Moon from '../../../../design-system/assets/svg/moon.svg';
-import Sun from '../../../../design-system/assets/svg/sun.svg';
+import Moon from '../../../design-system/assets/svg/moon.svg';
+import Sun from '../../../design-system/assets/svg/sun.svg';
+import Logout from '../../../design-system/assets/svg/log-out.svg';
 
 interface PropsWithAuthUser {
   AuthUser: AuthUser;
@@ -17,17 +18,20 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
     <header
       sx={{
         bg: 'grayDark',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      <p sx={{
-        color: 'white',
-      }}>You're signed in. Email: {AuthUser.email}</p>
-      <p
-        style={{
-          display: 'inlinelock',
-          color: 'blue',
-          textDecoration: 'underline',
-          cursor: 'pointer',
+      <IconButton
+        aria-label="Log out"
+        sx={{
+          color: 'textInverted',
+          width: 10,
+          height: 10,
+          display: 'flex',
+          my: 1,
         }}
         onClick={async (): Promise<void> => {
           try {
@@ -38,11 +42,19 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
           }
         }}
       >
-        Log out
-      </p>
-      <IconButton sx={{
-        color: 'white',
-      }} onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')} aria-label={`Toggle ${colorMode === 'light' ? 'Dark' : 'Light'}`}>
+        <Logout />
+      </IconButton>
+      <IconButton
+        sx={{
+          color: 'textInverted',
+          width: 10,
+          height: 10,
+          display: 'flex',
+          my: 1,
+        }}
+        onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')}
+        aria-label={`Toggle ${colorMode === 'light' ? 'Dark' : 'Light'}`}
+      >
         {colorMode === 'light' ? <Moon /> : <Sun />}
       </IconButton>
     </header>
