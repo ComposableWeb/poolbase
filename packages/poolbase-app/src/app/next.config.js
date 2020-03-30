@@ -3,7 +3,7 @@
 require('./env.js');
 
 module.exports = {
-  distDir: '../../../../dist/app/functions/next',
+  distDir: process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next',
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration
   env: {
