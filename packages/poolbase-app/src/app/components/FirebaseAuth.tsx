@@ -1,18 +1,24 @@
 /* globals window */
 import React, { useEffect, useState } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import initFirebase from '../utils/auth/initFirebase';
+import firebase from '../utils/auth/initFirebase';
 
 // Init the Firebase app.
-initFirebase();
 
 const firebaseAuthConfig = {
   signInFlow: 'popup',
   // Auth providers
   // https://github.com/firebase/firebaseui-web#configure-oauth-providers
   signInOptions: [
+    {
+      provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      scopes: ['https://www.googleapis.com/auth/contacts.readonly'],
+      customParameters: {
+        // Forces account selection even when one account
+        // is available.
+        prompt: 'select_account',
+      },
+    },
     {
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       requireDisplayName: false,
