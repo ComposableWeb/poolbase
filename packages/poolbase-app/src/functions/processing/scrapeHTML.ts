@@ -13,7 +13,7 @@ export const scrapeHTML = async (url: string): Promise<ScrapeData> => {
     metaTitle: null,
     status: null,
   };
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
   const page = await browser.newPage();
   try {
@@ -29,7 +29,13 @@ export const scrapeHTML = async (url: string): Promise<ScrapeData> => {
     await page.waitForSelector('head > title');
     const extractedFromHEAD = await page.evaluate(() => {
       return {
-        ...(!!document.querySelector('title') && { metaTitle: document!.querySelector('title')!.innerText.trim() }),
+        ...(!!document.querySelector('title') && { metaTitle: document?.querySelector('title')?.innerText.trim() }),
+        ...(!!document.querySelector('meta[name=keywords]') && {
+          metaKeywords: document?.querySelector('meta[name=author]')?.getAttribute('content'),
+        }),
+        ...(!!document.querySelector('meta[name=author]') && {
+          metaAuthor: document?.querySelector('meta[name=author]')?.getAttribute('content'),
+        }),
       };
     });
     data = {
@@ -42,5 +48,3 @@ export const scrapeHTML = async (url: string): Promise<ScrapeData> => {
 
   return data;
 };
-
-scrapeHTML('https://github.com/drejohnson/sapper-graphql-firebase');

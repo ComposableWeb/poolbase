@@ -21,7 +21,7 @@
     "lint": "npm-run-all -p -r lint-app lint-functions"
   },
   "keywords": [],
-  "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
+  "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "engines": {
     "node": "10"
@@ -34,11 +34,14 @@
     "firebase-functions": "^3.3.0",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
-    "next": "^9.2.1",
+    "next": "^9.3.2",
     "puppeteer": "^2.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-firebaseui": "^4.1.0",
+    "react-hook-form": "^5.2.0",
+    "rxfire": "^3.11.1",
+    "rxjs": "^6.5.4",
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
