@@ -51,7 +51,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
             height: '100%',
             '& > div': {
               height: '100%',
-            }
+            },
           }}
         >
           <Main />

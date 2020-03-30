@@ -151,7 +151,8 @@ export const colors = {
   grayDark: baseColors.gray[8],
   text: baseColors.gray[8],
   textInverted: baseColors.gray[2],
-  background: baseColors.white,
+  background: baseColors.gray[2],
+  backgroundInverted: baseColors.gray[8],
   primary: baseColors.blue[7],
   primaryHover: baseColors.blue[8],
   secondary: baseColors.gray[6],
@@ -165,9 +166,10 @@ export const colors = {
   textMuted: baseColors.gray[6],
   modes: {
     dark: {
-      text: baseColors.gray[2],
-      textInverted: baseColors.gray[3],
+      text: baseColors.gray[4],
+      textInverted: baseColors.gray[5],
       background: baseColors.gray[9],
+      backgroundInverted: baseColors.black,
       primary: '#0cf',
       secondary: '#90c',
     },
@@ -380,6 +382,7 @@ const heading = {
   lineHeight: 'heading',
   m: 0,
   mb: 1,
+  color: 'text',
 };
 
 export const styles = {

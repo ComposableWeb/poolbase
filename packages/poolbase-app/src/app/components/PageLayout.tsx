@@ -25,13 +25,13 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
       ) : (
         <Grid
           gap={0}
-          columns={[0, '200px 1fr']}
+          columns={[0, '150px 1fr']}
           sx={{
             height: '100%',
           }}
         >
           <Header AuthUser={AuthUser} />
-          <div>{children}</div>
+          <main sx={{ px: 4 }}>{children}</main>
         </Grid>
       )}
     </>
