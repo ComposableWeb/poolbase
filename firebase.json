@@ -14,10 +14,6 @@
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
-          "source": "/firebase-api/save-page",
-          "function": "savePage"
-        },
-        {
           "source": "**/**",
           "function": "next"
         }

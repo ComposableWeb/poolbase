@@ -1,13 +1,4 @@
 {
-  "indexes": [
-    {
-      "collectionGroup": "pages",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "url", "mode": "ASCENDING" },
-        { "fieldPath": "title", "mode": "DESCENDING" }
-      ]
-    }
-  ],
+  "indexes": [],
   "fieldOverrides": []
 }

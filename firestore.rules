@@ -1,7 +1,9 @@
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /pages/{pageId} {
-      allow read, create: if request.auth != null;
+      allow read;
+      allow create: if request.auth != null;
       allow update: if request.auth != null
                     && request.resource.data.userId == request.auth.uid; // TODO: add group level permissions
       allow delete: if false;

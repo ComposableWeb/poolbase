@@ -15,7 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Andreas Sahle <andreas.sahle@gmail.com> (https://pixelmord.de/)",
+  "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
     "cross-env": "7.0.0",
