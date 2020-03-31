@@ -13,7 +13,7 @@ export const pageCreateHandler = functions
     const page = snapshot.data();
     try {
       if (typeof page !== 'undefined' && typeof page.url !== 'undefined') {
-        const data = await scrapeHTML(page.url);
+        const data = await scrapeHTML(page.url, context.params.pageId);
         firestore
           .collection('pages')
           .doc(context.params.pageId)

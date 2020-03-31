@@ -9,6 +9,7 @@ type URLDocumentData = {
   uid: string;
   status: string | number;
   created: FieldValue;
+  processed: {};
 };
 
 export const addURLHandler = functions.region('europe-west1').https.onCall(
@@ -31,6 +32,7 @@ export const addURLHandler = functions.region('europe-west1').https.onCall(
       created: admin.firestore.FieldValue.serverTimestamp(),
       uid: context.auth?.uid,
       status: 'new',
+      processed: {},
     };
     // Push the new url into Cloud Firestore using the Firebase Admin SDK.
     return await firestore.collection('pages').add(urlData);
