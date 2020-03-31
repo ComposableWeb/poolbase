@@ -1,18 +1,11 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
 import { bucket } from '../initFirebase';
 
-type ScrapeData = {
-  status: number | string | null;
-  metaKeywords: string[] | null;
-  metaDescription: string | null;
-  metaTitle: string | null;
-  metaAuthor: string | null;
-  metaPublisher: string | null;
-  mainText: string | null;
-  metaIconUrl: string | null;
-  mainImageUrl: string | null;
+import { PageData } from '../../app/interfaces';
+
+interface ScrapeData extends Partial<PageData> {
   'processed.html': boolean;
-};
+}
 
 export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeData> => {
   const saveScreenShot = async (imageBuffer: string | Buffer, pageId: string, size = 'preview'): Promise<string> => {
