@@ -18,7 +18,7 @@ interface Datum {
   metaTitle: string;
 }
 
-const AddUrlPage: NextPage<{}> = (props): JSX.Element => {
+const AddUrlPage: NextPage<{}> = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -58,7 +58,9 @@ const AddUrlPage: NextPage<{}> = (props): JSX.Element => {
       </form>
       {data.map(
         (page): JSX.Element => (
-          <Styled.h3 key={page.id}>{!page.metaTitle ? page.url : page.metaTitle}</Styled.h3>
+          <>
+            <Styled.h3 key={page.id}>{!page.metaTitle ? page.url : page.metaTitle}</Styled.h3>
+          </>
         )
       )}
     </PageLayout>

@@ -1,23 +1,27 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui';
 import { NextPage } from 'next';
+import { useState, useEffect } from 'react';
+
 import withAuthUser from '../utils/pageWrappers/withAuthUser';
+import { firestore, collectionData } from '../utils/auth/initFirebase';
 
 import PageLayout from '../components/PageLayout';
 import { PropsWithAuthUserInfo } from '../interfaces';
-import { firestore } from '../utils/auth/initFirebase';
 
-interface HomePageProps extends PropsWithAuthUserInfo {
-  data: Datum[];
-}
-
-interface Datum {
-  id: string;
-  url: string;
-}
-
-const HomePage: NextPage<HomePageProps> = (props: HomePageProps): JSX.Element => {
-  const { data } = props;
+const HomePage: NextPage<PropsWithAuthUserInfo> = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const query = firestore
+      .collection('pages')
+      .orderBy('created', 'desc')
+      .limit(3);
+    const subscription = collectionData(query, 'id').subscribe(setData);
+    // Specify how to clean up after this effect:
+    return function cleanup(): void {
+      subscription.unsubscribe();
+    };
+  }, []);
   return (
     <PageLayout>
       {data.map(
@@ -27,16 +31,6 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps): JSX.Element =>
       )}
     </PageLayout>
   );
-};
-
-// eslint-disable-next-line @typescript-eslint/unbound-method
-HomePage.getInitialProps = async (): Promise<{ data: Datum[] }> => {
-  const snapshot = await firestore.collection('pages').get();
-  const data: Datum[] = snapshot.docs.map((doc): Datum => ({ id: doc.id, ...(doc.data() as { url: string }) }));
-
-  return {
-    data,
-  };
 };
 
 export default withAuthUser(HomePage);
