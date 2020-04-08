@@ -12,10 +12,7 @@ import { PropsWithAuthUserInfo } from '../interfaces';
 const HomePage: NextPage<PropsWithAuthUserInfo> = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const query = firestore
-      .collection('pages')
-      .orderBy('created', 'desc')
-      .limit(3);
+    const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
     const subscription = collectionData(query, 'id').subscribe(setData);
     // Specify how to clean up after this effect:
     return function cleanup(): void {
