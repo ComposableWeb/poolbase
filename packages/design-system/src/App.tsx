@@ -1,12 +1,8 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui';
 
-function App() {
-  return (
-    <Styled.h1 className="App">
-      Hello!
-    </Styled.h1>
-  );
+function App(): React.FC {
+  return <Styled.h1 className="App">Hello!!</Styled.h1>;
 }
 
 export default App;

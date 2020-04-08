@@ -11,9 +11,8 @@ console.info('Poolbase Design-System');
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={poolbaseTheme}>
-    <App />
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-

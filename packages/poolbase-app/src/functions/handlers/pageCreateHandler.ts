@@ -14,10 +14,7 @@ export const pageCreateHandler = functions
     try {
       if (typeof page !== 'undefined' && typeof page.url !== 'undefined') {
         const data = await scrapeHTML(page.url, context.params.pageId);
-        firestore
-          .collection('pages')
-          .doc(context.params.pageId)
-          .update(data);
+        firestore.collection('pages').doc(context.params.pageId).update(data);
       }
     } catch (e) {
       console.log(e);
