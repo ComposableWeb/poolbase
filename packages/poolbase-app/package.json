@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "yarn dev",
     "dev": "NODE_ENV=development next dev \"src/app\"",
     "clean": "rimraf \"../../dist/app\"",
     "build-app": "NODE_ENV=production next build \"src/app\"",
@@ -24,6 +25,7 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "dependencies": {
+    "consola": "^2.11.3",
     "cookie-session": "1.4.0",
     "dotenv": "8.2.0",
     "firebase": "^7.7.0",

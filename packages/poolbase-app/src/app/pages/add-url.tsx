@@ -23,7 +23,7 @@ const AddUrlPage: NextPage<{}> = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { register, handleSubmit } = useForm();
-
+  console.table(data);
   const onSubmit = async (data): Promise<void> => {
     try {
       setLoading(true);
@@ -38,10 +38,7 @@ const AddUrlPage: NextPage<{}> = () => {
   };
 
   useEffect(() => {
-    const query = firestore
-      .collection('pages')
-      .orderBy('created', 'desc')
-      .limit(3);
+    const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
     const subscription = collectionData(query, 'id').subscribe(setData);
     // Specify how to clean up after this effect:
     return function cleanup(): void {

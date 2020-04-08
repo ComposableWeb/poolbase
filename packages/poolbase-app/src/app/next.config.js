@@ -1,6 +1,10 @@
 'use strict';
 
 require('./env.js');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const consola = require('consola');
+consola.withTag('app');
+consola.wrapConsole();
 
 module.exports = {
   distDir: process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next',
