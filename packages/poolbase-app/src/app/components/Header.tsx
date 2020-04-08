@@ -4,16 +4,16 @@ import Router from 'next/router';
 
 import { AuthUser } from '../interfaces';
 import logout from '../utils/auth/logout';
-import Moon from '../../../design-system/assets/svg/moon.svg';
-import Sun from '../../../design-system/assets/svg/sun.svg';
-import Logout from '../../../design-system/assets/svg/log-out.svg';
-import Add from '../../../design-system/assets/svg/plus-square.svg';
+import Moon from '../../../../design-system/src/assets/svg/moon.svg';
+import Sun from '../../../../design-system/src/assets/svg/sun.svg';
+import Logout from '../../../../design-system/src/assets/svg/log-out.svg';
+import Add from '../../../../design-system/src/assets/svg/plus-square.svg';
 
 interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
 
-const NaviIconButton = props => (
+const NaviIconButton = (props) => (
   <IconButton
     {...props}
     sx={{

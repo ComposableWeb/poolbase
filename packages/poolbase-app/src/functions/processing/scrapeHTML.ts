@@ -1,7 +1,7 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
 import { bucket } from '../initFirebase';
 
-import { PageData } from '../../app/interfaces';
+import { PageData } from '../interfaces';
 
 interface ScrapeData extends Partial<PageData> {
   'processed.html': boolean;
@@ -71,7 +71,7 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
             ?.querySelector('meta[name="keywords"]')
             ?.getAttribute('content')
             ?.split(',')
-            .map(keyword => keyword.trim()),
+            .map((keyword) => keyword.trim()),
         }),
         ...(!!document.querySelector('meta[name="author"]') && {
           metaAuthor: document?.querySelector('meta[name="author"]')?.getAttribute('content'),

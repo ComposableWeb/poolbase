@@ -2,7 +2,6 @@
   "name": "poolbase-app",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development next dev \"src/app\"",
     "clean": "rimraf \"../../dist/app\"",
@@ -23,6 +22,9 @@
   "keywords": [],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
+  "engines": {
+    "node": "10"
+  },
   "dependencies": {
     "cookie-session": "1.4.0",
     "dotenv": "8.2.0",
