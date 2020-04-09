@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 
 import withAuthUser from '../utils/pageWrappers/withAuthUser';
 import { firestore, collectionData } from '../utils/auth/initFirebase';
+import { ListItem } from '../../../../design-system/src/components/ListItem';
 
 import PageLayout from '../components/PageLayout';
 import { PropsWithAuthUserInfo } from '../interfaces';
@@ -23,7 +24,7 @@ const HomePage: NextPage<PropsWithAuthUserInfo> = () => {
     <PageLayout>
       {data.map(
         (page): JSX.Element => (
-          <Styled.h3 key={page.id}>{page.url}</Styled.h3>
+          <ListItem key={page.id} data={page} />
         )
       )}
     </PageLayout>

@@ -1,6 +1,13 @@
 /** @jsx jsx */
-import { jsx, Box } from 'theme-ui';
+import { jsx, Box, Styled } from 'theme-ui';
 
-export const ListItem: React.FC = props => (
-  <Box {...props} />
-)
+import { PageData } from '../../../poolbase-app/src/app/interfaces';
+
+export const ListItem: React.FC<{ data: PageData }> = ({
+  data,
+  ...rest
+}: React.PropsWithChildren<{ data: PageData }>) => (
+  <Box {...rest}>
+    <Styled.h3>{!data.metaTitle ? data.url : data.metaTitle}</Styled.h3>
+  </Box>
+);
