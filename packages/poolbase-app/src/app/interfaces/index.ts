@@ -12,6 +12,8 @@ export interface PropsWithAuthUserInfo {
 }
 
 export interface PageData {
+  id: string;
+  url: string;
   status: number | string | null;
   metaKeywords: string[] | null;
   metaDescription: string | null;
