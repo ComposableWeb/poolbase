@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 import withAuthUser from '../utils/pageWrappers/withAuthUser';
 import { firestore, collectionData } from '../utils/auth/initFirebase';
-import { ListItem } from '../../../../design-system/src/components/ListItem';
+import { ListItem } from 'design-system/src/components/ListItem';
 
 import PageLayout from '../components/PageLayout';
 import { PropsWithAuthUserInfo } from '../interfaces';

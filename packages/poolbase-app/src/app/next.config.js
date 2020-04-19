@@ -5,8 +5,8 @@ require('./env.js');
 const consola = require('consola');
 consola.withTag('app');
 consola.wrapConsole();
-
-module.exports = {
+const withTM = require('next-transpile-modules')(['design-system']);
+module.exports = withTM({
   distDir: process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next',
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration
@@ -15,4 +15,4 @@ module.exports = {
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_PUBLIC_API_KEY: process.env.FIREBASE_PUBLIC_API_KEY,
   },
-};
+});
