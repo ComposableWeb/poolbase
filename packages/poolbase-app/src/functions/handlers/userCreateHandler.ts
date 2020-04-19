@@ -3,14 +3,16 @@ import { firestore } from '../initFirebase';
 export const userCreateHandler = functions
   .region('europe-west1')
   .auth.user()
-  .onCreate(async (user) => {
+  .onCreate(async (userRecord) => {
     try {
-      await firestore.collection('users').add({
-        email: user.email,
-        emailVerified: user.emailVerified,
-        providerData: user.providerData,
+      const { email, displayName, photoURL, uid } = userRecord;
+      return await firestore.collection('users').add({
+        uid,
+        email,
+        displayName,
+        photoURL,
       });
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   });
