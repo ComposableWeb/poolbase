@@ -87,7 +87,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
 
           <link href="/images/icons/touch-icon-start-up-320x480.png" rel="apple-touch-startup-image" />
 
-          <link href="/images/icons/poolbase-icon.svg" rel="mask-icon" size="any" color="red" />
+          <link href="/images/icons/poolbase-icon.svg" rel="mask-icon" color="#1887ED" />
 
           <link href="/images/icons/icon192.png" rel="icon" sizes="192x192" />
           <link href="/images/icons/icon128.png" rel="icon" sizes="128x128" />
