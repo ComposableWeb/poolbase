@@ -7,6 +7,9 @@
     "build": "cpx \"src/public/**/*.*\" \"../../dist/landing/public\" -C",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bic": [
+    "src"
+  ],
   "devDependencies": {
     "cpx": "1.5.0"
   },

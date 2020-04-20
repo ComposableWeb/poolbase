@@ -8,6 +8,7 @@
   ],
   "main": "n/a",
   "scripts": {
+    "build": "bic",
     "deploy": "firebase deploy",
     "install-deps": "cd \"dist/app/functions\" && yarn install",
     "preserve": "npx lerna --scope poolbase-app run build && yarn install-deps && npx lerna --scope poolbase-landing run build",
@@ -18,6 +19,7 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
+    "build-if-changed": "^1.5.5",
     "cross-env": "7.0.2",
     "docsify": "^4.10.2",
     "docsify-cli": "^4.4.0",

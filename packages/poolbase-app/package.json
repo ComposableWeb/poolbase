@@ -13,7 +13,7 @@
     "preinstall-deps": "cpx \"*{package.json,package-lock.json,yarn.lock}\" \"../../dist/app/functions\" -C",
     "install-deps": "cd \"../../dist/app/functions\" && yarn install",
     "prebuild": "yarn clean",
-    "build": "npm-run-all -s build-* preinstall-deps",
+    "build": "npm-run-all -s build-* install-deps",
     "typecheck-app": "tsc --project src/app",
     "typecheck-functions": "tsc --project src/functions",
     "type-check": "yarn typecheck-app && yarn typecheck-functions",
@@ -21,6 +21,9 @@
     "lint-functions": "eslint -c './src/functions/.eslintrc.js' './src/functions/index.ts'",
     "lint": "npm-run-all -p -r lint-app lint-functions"
   },
+  "bic": [
+    "src"
+  ],
   "keywords": [],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",

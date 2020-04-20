@@ -5,7 +5,7 @@
   },
   "functions": {
     "source": "dist/app/functions",
-    "predeploy": ["npx lerna --scope poolbase-app run build"]
+    "predeploy": ["yarn build"]
   },
   "hosting": [
     {
@@ -18,7 +18,7 @@
           "function": "next"
         }
       ],
-      "predeploy": "npx lerna --scope poolbase-app run build-public"
+      "predeploy": "yarn build"
     },
     {
       "target": "landing",
@@ -30,7 +30,7 @@
           "destination": "/index.html"
         }
       ],
-      "predeploy": "npx lerna --scope poolbase-landing run build"
+      "predeploy": "yarn build"
     }
   ]
 }

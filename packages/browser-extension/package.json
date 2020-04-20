@@ -9,6 +9,9 @@
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "type-check": "tsc"
   },
+  "bic": [
+    "src"
+  ],
   "dependencies": {
     "consola": "^2.11.3",
     "react": "^16.13.1",
