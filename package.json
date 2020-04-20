@@ -6,7 +6,7 @@
   "workspaces": [
     "./packages/*"
   ],
-  "main": "index.js",
+  "main": "n/a",
   "scripts": {
     "deploy": "firebase deploy",
     "install-deps": "cd \"dist/app/functions\" && yarn install",
