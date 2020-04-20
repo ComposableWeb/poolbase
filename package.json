@@ -18,11 +18,11 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
-    "cross-env": "7.0.0",
+    "cross-env": "7.0.2",
     "docsify": "^4.10.2",
     "docsify-cli": "^4.4.0",
     "dotenv-cli": "^3.1.0",
-    "firebase-tools": "^7.12.1",
+    "firebase-tools": "^8.1.1",
     "lerna": "^3.20.2"
   }
 }

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 /* eslint react/no-danger: 0 */
-import { jsx } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 import { get } from 'lodash/object';
 import Document, { DocumentContext, Html, Head, Main, NextScript, DocumentInitialProps } from 'next/document';
 
@@ -106,7 +106,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
             }}
           />
         </Head>
-        <body
+        <Box as="body"
           sx={{
             height: '100%',
             '& > div': {
@@ -116,7 +116,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
         >
           <Main />
           <NextScript />
-        </body>
+        </Box>
       </Html>
     );
   }

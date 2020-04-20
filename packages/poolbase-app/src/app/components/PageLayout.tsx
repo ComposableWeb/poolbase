@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui';
+import { jsx, Grid, Box } from 'theme-ui';
 import { get } from 'lodash/object';
 import { NextPage } from 'next';
 import { PropsWithAuthUserInfo } from '../interfaces';
@@ -31,7 +31,7 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
           }}
         >
           <Header AuthUser={AuthUser} />
-          <main sx={{ px: 4 }}>{children}</main>
+          <Box as="main" sx={{ px: 4 }}>{children}</Box>
         </Grid>
       )}
     </>

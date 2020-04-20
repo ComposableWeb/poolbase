@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, IconButton, useColorMode } from 'theme-ui';
+import { jsx, IconButton, useColorMode, Box } from 'theme-ui';
 import Router from 'next/router';
 
 import { AuthUser } from '../interfaces';
@@ -28,7 +28,8 @@ const NaviIconButton = (props) => (
 export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
-    <header
+    <Box
+      as="header"
       sx={{
         bg: 'backgroundInverted',
         display: 'flex',
@@ -64,6 +65,6 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
       >
         {colorMode === 'light' ? <Moon /> : <Sun />}
       </NaviIconButton>
-    </header>
+    </Box>
   );
 }
