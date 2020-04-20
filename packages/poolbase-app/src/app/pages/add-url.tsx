@@ -3,6 +3,7 @@ import { jsx, Styled } from 'theme-ui';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 import withAuthUser from '../utils/pageWrappers/withAuthUser';
 import PageLayout from '../components/PageLayout';
@@ -19,11 +20,11 @@ interface Datum {
 }
 
 const AddUrlPage: NextPage<{}> = () => {
+  const router = useRouter();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { register, handleSubmit } = useForm();
-  console.table(data);
   const onSubmit = async (data): Promise<void> => {
     try {
       setLoading(true);
@@ -50,7 +51,7 @@ const AddUrlPage: NextPage<{}> = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {error ? <h3 className="error">{error}</h3> : null}
         <label htmlFor="url">URL</label>
-        <input name="url" required ref={register} />
+        <input name="url" value={router.query.url ? router.query.url : ''} required ref={register} />
         <button disabled={loading}>{loading ? 'Loading...' : 'Add URL'}</button>
       </form>
       {data.map(
