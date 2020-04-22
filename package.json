@@ -13,14 +13,25 @@
     "install-deps": "cd \"dist/app/functions\" && yarn install",
     "preserve": "yarn build && yarn install-deps",
     "serve": "cross-env NODE_ENV=production dotenv -e ./packages/poolbase-app/src/app/.env -e ./packages/poolbase-app/src/app/.env.local firebase serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "keywords": ["pwa", "chrome extension", "gatsby", "typescript", "design-system", "react", "cloud functions", "firebase", "nextjs"],
+  "keywords": [
+    "pwa",
+    "chrome extension",
+    "gatsby",
+    "typescript",
+    "design-system",
+    "react",
+    "cloud functions",
+    "firebase",
+    "nextjs"
+  ],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
