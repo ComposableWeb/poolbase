@@ -1,6 +1,6 @@
 {
   "name": "poolbase",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "description": "Information pool for groups and companies",
   "private": true,
   "workspaces": [
@@ -11,7 +11,7 @@
     "build": "bic",
     "deploy": "firebase deploy",
     "install-deps": "cd \"dist/app/functions\" && yarn install",
-    "preserve": "yarn build && yarn install-deps",
+    "preserve": "yarn build && firebase emulators:start",
     "serve": "cross-env NODE_ENV=production dotenv -e ./packages/poolbase-app/src/app/.env -e ./packages/poolbase-app/src/app/.env.local firebase serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo"

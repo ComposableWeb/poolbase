@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "dependencies": {
     "@testing-library/jest-dom": "^5.5.0",

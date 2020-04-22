@@ -1,6 +1,6 @@
 {
   "name": "poolbase-app",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "description": "",
   "scripts": {
     "start": "yarn dev",
@@ -40,7 +40,12 @@
       ]
     ]
   },
-  "keywords": ["pwa", "firebase", "nextjs", "cloud functions"],
+  "keywords": [
+    "pwa",
+    "firebase",
+    "nextjs",
+    "cloud functions"
+  ],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "engines": {
