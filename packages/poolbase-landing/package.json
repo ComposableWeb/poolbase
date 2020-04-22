@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cpx \"src/public/**/*.*\" \"../../dist/landing/public\" -C",
+    "start": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "postbuild": "cpx \"public/**/*.*\" \"../../dist/landing/public\" -C",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "release": {
@@ -38,5 +43,11 @@
   },
   "keywords": [],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.20.29",
+    "gatsby-plugin-typescript": "^2.3.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }
