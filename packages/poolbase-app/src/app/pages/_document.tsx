@@ -46,7 +46,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
           />
           <meta name="description" content="All your information in one place" />
           <meta name="keywords" content="bookmarks, groups, collaboration, search, information management" />
-          <title>Poolbase</title>
+
 
           <meta name="theme-color" content="#1887ED" />
           <meta name="mobile-web-app-capable" content="yes" />

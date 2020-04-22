@@ -11,6 +11,9 @@ const withTM = require('next-transpile-modules')(['design-system']);
 const withPWA = require('next-pwa');
 const distDir = process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next';
 const nextConfiguration = {
+  pwa: {
+    dest: 'public',
+  },
   distDir,
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration
@@ -20,4 +23,4 @@ const nextConfiguration = {
     FIREBASE_PUBLIC_API_KEY: process.env.FIREBASE_PUBLIC_API_KEY,
   },
 };
-module.exports = withPlugins([withTM, [withPWA, { dest: 'public' }]], nextConfiguration);
+module.exports = withPlugins([withTM, [withPWA]], nextConfiguration);

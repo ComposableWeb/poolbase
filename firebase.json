@@ -10,11 +10,11 @@
   "hosting": [
     {
       "target": "app",
-      "public": "dist/app/public",
+      "public": "dist/app/functions/public",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
-          "source": "**/**",
+          "source": "**",
           "function": "next"
         }
       ],

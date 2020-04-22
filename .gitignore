@@ -90,3 +90,5 @@ typings/
 .firebase/
 
 dist/
+
+.bic_cache

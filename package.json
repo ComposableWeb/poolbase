@@ -11,7 +11,7 @@
     "build": "bic",
     "deploy": "firebase deploy",
     "install-deps": "cd \"dist/app/functions\" && yarn install",
-    "preserve": "npx lerna --scope poolbase-app run build && yarn install-deps && npx lerna --scope poolbase-landing run build",
+    "preserve": "yarn build && yarn install-deps",
     "serve": "cross-env NODE_ENV=production dotenv -e ./packages/poolbase-app/src/app/.env -e ./packages/poolbase-app/src/app/.env.local firebase serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
