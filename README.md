@@ -6,7 +6,13 @@
 > Create your OWN pool(s) for you, your ideas and groups of people that work with you.
 > Let machines do the work for you, have the information your care about automatically categorized and indexed.
 
-## Technical Roadmap sub projects (packages, unsorted)
+## Info for Developers
+
+### Documentation
+
+https://developer.poolbase.fyi
+
+### Technical Roadmap sub projects (packages, unsorted)
 
 - [Base Development project setup](https://github.com/ComposableWeb/poolbase/projects/1)
 - [Chrome + FF ext](https://github.com/ComposableWeb/poolbase/projects/2)
