@@ -15,16 +15,26 @@
     "serve": "cross-env NODE_ENV=production dotenv -e ./packages/poolbase-app/src/app/.env -e ./packages/poolbase-app/src/app/.env.local firebase serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": ["pwa", "chrome extension", "gatsby", "typescript", "design-system", "react", "cloud functions", "firebase", "nextjs"],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "build-if-changed": "^1.5.5",
     "cross-env": "7.0.2",
     "docsify": "^4.10.2",
     "docsify-cli": "^4.4.0",
     "dotenv-cli": "^3.1.0",
     "firebase-tools": "^8.1.1",
-    "lerna": "^3.20.2"
+    "husky": "^4.2.5",
+    "lerna": "^3.20.2",
+    "semantic-release": "^17.0.7",
+    "semantic-release-monorepo": "^7.0.2"
   }
 }

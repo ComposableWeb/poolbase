@@ -21,7 +21,26 @@
     "lint-functions": "eslint -c './src/functions/.eslintrc.js' './src/functions/index.ts'",
     "lint": "npm-run-all -p -r lint-app lint-functions"
   },
-  "keywords": [],
+  "release": {
+    "branch": "master",
+    "extends": "semantic-release-monorepo",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  },
+  "keywords": ["pwa", "firebase", "nextjs", "cloud functions"],
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "engines": {
@@ -52,6 +71,11 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/lodash": "^4.14.150",
     "@types/node": "^13.13.1",
     "@types/puppeteer": "^2.0.1",
@@ -70,6 +94,8 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.1",
+    "semantic-release": "^17.0.7",
+    "semantic-release-monorepo": "^7.0.2",
     "typescript": "^3.7.5"
   }
 }

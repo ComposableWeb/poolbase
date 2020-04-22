@@ -9,6 +9,25 @@
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "type-check": "tsc"
   },
+  "release": {
+    "branch": "master",
+    "extends": "semantic-release-monorepo",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  },
   "dependencies": {
     "consola": "^2.11.3",
     "react": "^16.13.1",
@@ -16,6 +35,11 @@
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/chrome": "0.0.104",
     "@types/react": "^16.9.34",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
@@ -36,6 +60,8 @@
     "html-webpack-plugin": "^4.2.0",
     "prettier": "^2.0.4",
     "react-hot-loader": "^4.12.20",
+    "semantic-release": "^17.0.7",
+    "semantic-release-monorepo": "^7.0.2",
     "style-loader": "^1.1.4",
     "ts-loader": "^7.0.1",
     "typescript": "~3.8.3",
