@@ -1,8 +1,10 @@
 import cookieSession from 'cookie-session';
-import * as functions from 'firebase-functions';
+import { functions } from '../../../functions/initFirebase';
 
-const SESSION_SECRET_CURRENT = functions.config().env.session_secret_current || process.env.SESSION_SECRET_CURRENT;
-const SESSION_SECRET_PREVIOUS = functions.config().env.session_secret_previous || process.env.SESSION_SECRET_PREVIOUS;
+const SESSION_SECRET_CURRENT =
+  (functions.config().env && functions.config().env.session_secret_current) || process.env.SESSION_SECRET_CURRENT;
+const SESSION_SECRET_PREVIOUS =
+  (functions.config().env && functions.config().env.session_secret_previous) || process.env.SESSION_SECRET_PREVIOUS;
 export const addSession = (req, res) => {
   // Ensure that session secrets are set.
   if (!(SESSION_SECRET_CURRENT && SESSION_SECRET_PREVIOUS)) {
