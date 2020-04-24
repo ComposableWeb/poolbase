@@ -1,3 +1,10 @@
+# [poolbase-app-v1.0.1](https://github.com/ComposableWeb/poolbase/compare/poolbase-app-v1.0.0...poolbase-app-v1.0.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* **functions:** use function config vars for env ([81fad4c](https://github.com/ComposableWeb/poolbase/commit/81fad4c0b9c8a4d4ea0bd437b6d1e146265111f4))
+
 # poolbase-app-v1.0.0 (2020-04-22)
 
 
