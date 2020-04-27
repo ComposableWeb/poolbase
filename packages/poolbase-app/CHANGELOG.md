@@ -1,3 +1,10 @@
+# [poolbase-app-v1.0.2](https://github.com/ComposableWeb/poolbase/compare/poolbase-app-v1.0.1...poolbase-app-v1.0.2) (2020-04-24)
+
+
+### Bug Fixes
+
+* safe use of funnctions config vars ([69d8e56](https://github.com/ComposableWeb/poolbase/commit/69d8e56dd3445301c34aee9e8944cfe2a8601898))
+
 # [poolbase-app-v1.0.1](https://github.com/ComposableWeb/poolbase/compare/poolbase-app-v1.0.0...poolbase-app-v1.0.1) (2020-04-22)
 
 
