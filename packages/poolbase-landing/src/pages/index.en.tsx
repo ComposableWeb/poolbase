@@ -2,7 +2,7 @@ import * as React from "react"
 import { useTranslation } from "react-i18next"
 import Layout from "../components/Layout"
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   const [t] = useTranslation(`index`)
 
   return (
