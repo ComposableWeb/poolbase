@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { render } from 'react-dom';
+import { initReactI18next } from 'react-i18next';
 
+import i18next, { defaultOptions } from '../../common/i18n';
 import { Popup } from './Popup';
 // import './index.css';
+defaultOptions.ns = [...defaultOptions.ns, 'browser-ext-popup'];
+i18next.use(initReactI18next).init(defaultOptions);
 
 render(<Popup />, window.document.querySelector('#app-container'));
