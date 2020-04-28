@@ -10,7 +10,6 @@ export const defaultOptions = {
   ns: ['common'],
   defaultNS: 'common',
   resources,
-
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
   },

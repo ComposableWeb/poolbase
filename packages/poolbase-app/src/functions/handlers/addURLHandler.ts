@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions';
 import { FieldValue, DocumentReference, DocumentData } from '@google-cloud/firestore';
 
-import admin, { firestore } from '../initFirebase';
+import admin, { firestore } from '../initFirebaseAdmin';
 
 type URLDocumentData = {
   title?: string;
