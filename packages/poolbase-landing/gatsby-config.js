@@ -9,7 +9,7 @@ module.exports = {
       options: {
         languages: [`en`, `de`],
         namespaces: [`common`, `index`],
-        localesDir: `./src/locales`,
+        localesDir: `../../locales`,
         defaultLng: `en`,
         embedTranslations: {
           preloadFallbackLng: true,
