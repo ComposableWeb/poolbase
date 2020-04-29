@@ -1,0 +1,13 @@
+{
+  "name": "poolbase-common",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
+  "license": "MIT"
+}

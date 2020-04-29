@@ -53,6 +53,7 @@
     "node": "10"
   },
   "dependencies": {
+    "poolbase-common": "*",
     "consola": "^2.11.3",
     "cookie-session": "1.4.0",
     "design-system": "*",
