@@ -19,7 +19,7 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
   public static async getInitialProps(ctx: DocumentContext): Promise<CustomDocumentProps> {
     // Get the AuthUserInfo object. This is set if the server-rendered page
     // is wrapped in the `withAuthUser` higher-order component.
-    const AuthUserInfo = get(ctx, 'myCustomData.AuthUserInfo', null);
+    const AuthUserInfo = get(ctx, 'poolbase.AuthUserInfo', null);
 
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps, AuthUserInfo };
@@ -46,7 +46,6 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
           />
           <meta name="description" content="All your information in one place" />
           <meta name="keywords" content="bookmarks, groups, collaboration, search, information management" />
-
 
           <meta name="theme-color" content="#1887ED" />
           <meta name="mobile-web-app-capable" content="yes" />
@@ -106,7 +105,8 @@ export default class CustomDocument extends Document<CustomDocumentProps> {
             }}
           />
         </Head>
-        <Box as="body"
+        <Box
+          as="body"
           sx={{
             height: '100%',
             '& > div': {

@@ -1,10 +1,10 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
-const FIREBASE_PRIVATE_KEY = functions.config().env.firebase_private_key || process.env.FIREBASE_PRIVATE_KEY;
+const FIREBASE_PRIVATE_KEY =
+  (functions.config().env && functions.config().env.firebase_private_key) || process.env.FIREBASE_PRIVATE_KEY;
 export const verifyIdToken = (token: string): Promise<admin.auth.DecodedIdToken | void> => {
   const firebasePrivateKey = FIREBASE_PRIVATE_KEY;
-
   if (!admin.apps.length) {
     admin.initializeApp({
       credential: admin.credential.cert({

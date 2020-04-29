@@ -1,11 +1,14 @@
 /** @jsx jsx */
-import { jsx, Grid, Box } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { get } from 'lodash/object';
 import { NextPage } from 'next';
-import { PropsWithAuthUserInfo } from '../interfaces';
-import withAuthUserInfo from '../utils/pageWrappers/withAuthUserInfo';
-import Header from './Header';
-import FirebaseAuth from './FirebaseAuth';
+
+import AppLayout from 'design-system/src/components/AppLayout';
+import AppMain from 'design-system/src/components/AppMain';
+import { PropsWithAuthUserInfo } from '../../interfaces';
+import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
+import Header from '../Header';
+import FirebaseAuth from '../FirebaseAuth';
 
 const PageLayout: NextPage<PropsWithAuthUserInfo> = (
   props: PropsWithAuthUserInfo & { children: JSX.Element }
@@ -16,23 +19,17 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
   return (
     <>
       {!AuthUser ? (
-        <div>
+        <AppMain>
           <p>Sign in</p>
           <div>
             <FirebaseAuth />
           </div>
-        </div>
+        </AppMain>
       ) : (
-        <Grid
-          gap={0}
-          columns={[0, '150px 1fr']}
-          sx={{
-            height: '100%',
-          }}
-        >
+        <AppLayout>
           <Header AuthUser={AuthUser} />
-          <Box as="main" sx={{ px: 4 }}>{children}</Box>
-        </Grid>
+          <AppMain>{children}</AppMain>
+        </AppLayout>
       )}
     </>
   );

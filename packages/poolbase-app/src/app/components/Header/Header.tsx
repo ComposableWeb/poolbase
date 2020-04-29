@@ -1,13 +1,12 @@
 /** @jsx jsx */
-import { jsx, IconButton, useColorMode, Box } from 'theme-ui';
+import { jsx, IconButton, useColorMode } from 'theme-ui';
 import Router from 'next/router';
+import { PlusSquare as Add, Moon, Sun, LogOut } from 'react-feather'
 
-import { AuthUser } from '../interfaces';
-import logout from '../utils/auth/logout';
-import Moon from '../../../../design-system/src/assets/svg/moon.svg';
-import Sun from '../../../../design-system/src/assets/svg/sun.svg';
-import Logout from '../../../../design-system/src/assets/svg/log-out.svg';
-import Add from '../../../../design-system/src/assets/svg/plus-square.svg';
+import AppBar from 'design-system/src/components/AppBar';
+import { AuthUser } from '../../interfaces';
+import logout from '../../utils/auth/logout';
+
 
 interface PropsWithAuthUser {
   AuthUser: AuthUser;
@@ -28,16 +27,7 @@ const NaviIconButton = (props) => (
 export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
-    <Box
-      as="header"
-      sx={{
-        bg: 'backgroundInverted',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <AppBar as="header">
       <NaviIconButton
         aria-label="Add URL"
         onClick={(): void => {
@@ -57,7 +47,7 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
           }
         }}
       >
-        <Logout />
+        <LogOut />
       </NaviIconButton>
       <NaviIconButton
         onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')}
@@ -65,6 +55,6 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
       >
         {colorMode === 'light' ? <Moon /> : <Sun />}
       </NaviIconButton>
-    </Box>
+    </AppBar>
   );
 }
