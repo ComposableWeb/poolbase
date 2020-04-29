@@ -15,11 +15,7 @@ interface HomePageProps extends PropsWithAuthUserInfo {
   t?: (key: string) => string;
   namespacesRequired: string[];
 }
-declare global {
-  interface Window {
-    subscription: any;
-  }
-}
+
 
 const HomePage: NextPage<HomePageProps> = ({ t }: HomePageProps) => {
   const [data, setData] = useState([]);
@@ -27,7 +23,6 @@ const HomePage: NextPage<HomePageProps> = ({ t }: HomePageProps) => {
     const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
     const subscription = collectionData(query, 'id').subscribe(setData);
 
-    window.subscription = collectionData(query, 'id');
     // Specify how to clean up after this effect:
     return function cleanup(): void {
       subscription.unsubscribe();
