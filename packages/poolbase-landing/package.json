@@ -45,8 +45,8 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^2.20.29",
-    "gatsby-plugin-typescript": "^2.3.3",
+    "gatsby": "^2.21.4",
+    "gatsby-plugin-typescript": "^2.4.0",
     "gatsby-theme-localization": "^1.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

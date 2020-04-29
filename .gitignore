@@ -92,3 +92,5 @@ typings/
 dist/
 
 .bic_cache
+
+serviceAccountKey.json
