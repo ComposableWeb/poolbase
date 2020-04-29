@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 
 import AppLayout from 'design-system/src/components/AppLayout';
 import AppMain from 'design-system/src/components/AppMain';
-import { PropsWithAuthUserInfo } from '../../interfaces';
+import { PropsWithAuthUserInfo } from 'poolbase-common';
 import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
 import Header from '../Header';
 import FirebaseAuth from '../FirebaseAuth';

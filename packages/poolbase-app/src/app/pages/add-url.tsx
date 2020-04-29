@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 
 import withAuthUser from '../utils/pageWrappers/withAuthUser';
 import PageLayout from '../components/PageLayout';
-import { PropsWithAuthUserInfo } from '../interfaces';
+import { PropsWithAuthUserInfo } from 'poolbase-common';
 import { firestore, collectionData } from '../utils/auth/initFirebase';
 import { AddUrlForm } from '../components/AddUrlForm';
 

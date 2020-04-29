@@ -4,7 +4,7 @@ import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import { get } from 'lodash/object';
 import { AuthUserInfoContext } from '../auth/hooks';
-import { PropsWithAuthUserInfo } from '../../interfaces';
+import { PropsWithAuthUserInfo } from 'poolbase-common';
 
 // Provides an AuthUserInfo prop to the composed component.
 export default (ComposedComponent): NextPage<PropsWithAuthUserInfo> => {

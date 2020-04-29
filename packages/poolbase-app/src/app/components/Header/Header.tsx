@@ -1,42 +1,27 @@
 /** @jsx jsx */
-import { jsx, IconButton, useColorMode } from 'theme-ui';
+import { jsx, useColorMode } from 'theme-ui';
 import Router from 'next/router';
-import { PlusSquare as Add, Moon, Sun, LogOut } from 'react-feather'
+import { PlusSquare as Add, Moon, Sun, LogOut } from 'react-feather';
 
+import { PropsWithAuthUser } from 'poolbase-common';
 import AppBar from 'design-system/src/components/AppBar';
-import { AuthUser } from '../../interfaces';
+import NavIconButton from 'design-system/src/components/NavIconButton';
+
 import logout from '../../utils/auth/logout';
 
-
-interface PropsWithAuthUser {
-  AuthUser: AuthUser;
-}
-
-const NaviIconButton = (props) => (
-  <IconButton
-    {...props}
-    sx={{
-      color: 'textInverted',
-      width: 10,
-      height: 10,
-      display: 'flex',
-      my: 1,
-    }}
-  />
-);
 export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
     <AppBar as="header">
-      <NaviIconButton
+      <NavIconButton
         aria-label="Add URL"
         onClick={(): void => {
           Router.push('/add-url');
         }}
       >
         <Add />
-      </NaviIconButton>
-      <NaviIconButton
+      </NavIconButton>
+      <NavIconButton
         aria-label="Log out"
         onClick={async (): Promise<void> => {
           try {
@@ -48,13 +33,13 @@ export default function Header({ AuthUser }: PropsWithAuthUser): JSX.Element {
         }}
       >
         <LogOut />
-      </NaviIconButton>
-      <NaviIconButton
+      </NavIconButton>
+      <NavIconButton
         onClick={(): void => setColorMode(colorMode === 'light' ? 'dark' : 'light')}
         aria-label={`Toggle ${colorMode === 'light' ? 'Dark' : 'Light'}`}
       >
         {colorMode === 'light' ? <Moon /> : <Sun />}
-      </NaviIconButton>
+      </NavIconButton>
     </AppBar>
   );
 }
