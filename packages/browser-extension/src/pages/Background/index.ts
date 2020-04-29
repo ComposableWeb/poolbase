@@ -1,4 +1,8 @@
 import '../../common/logger';
+import i18next, { defaultOptions } from '../../common/i18n';
+defaultOptions.ns = [...defaultOptions.ns, 'browser-ext-background'];
+i18next.init(defaultOptions).then((t) => {
+  console.info(t('siteTitle'));
+});
 
-console.log('This is the background page!!!!!!!!!!!');
-console.log('Put the background scripts here.');
+console.info('This is the background page without translation!!!!!!!!!!!');

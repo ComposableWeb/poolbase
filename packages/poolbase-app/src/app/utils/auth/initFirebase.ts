@@ -13,8 +13,9 @@ const config = {
 };
 const app = !firebase.apps.length ? firebase.initializeApp(config) : firebase.apps[0];
 const firestore = firebase.firestore(app);
+
 const auth = firebase.auth(app);
-const loggedIn$ = authState(auth).pipe(filter(user => !!user));
+const loggedIn$ = authState(auth).pipe(filter((user) => !!user));
 const functions = firebase.app().functions('europe-west1');
 
 export { app, auth, firestore, functions, collectionData, loggedIn$ };

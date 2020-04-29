@@ -1,5 +1,5 @@
 import * as functions from 'firebase-functions';
-import { firestore } from '../initFirebase';
+import { firestore } from '../initFirebaseAdmin';
 export const userCreateHandler = functions
   .region('europe-west1')
   .auth.user()

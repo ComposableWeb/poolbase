@@ -1,5 +1,5 @@
 import cookieSession from 'cookie-session';
-import { functions } from '../../../functions/initFirebase';
+import { functions } from '../../../functions/initFirebaseAdmin';
 
 const SESSION_SECRET_CURRENT =
   (functions.config().env && functions.config().env.session_secret_current) || process.env.SESSION_SECRET_CURRENT;

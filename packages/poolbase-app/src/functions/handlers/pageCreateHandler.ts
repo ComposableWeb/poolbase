@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
 import { scrapeHTML } from '../processing';
-import { firestore } from '../initFirebase';
+import { firestore } from '../initFirebaseAdmin';
 
 export const pageCreateHandler = functions
   .region('europe-west1')

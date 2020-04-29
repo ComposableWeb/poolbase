@@ -17,7 +17,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX
     },
-    project: './src/app/tsconfig.json',
+    project: './tsconfig.json',
     tsconfigRootDir: path.resolve(__dirname),
   },
   rules: {

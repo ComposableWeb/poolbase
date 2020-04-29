@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import { auth } from 'firebase-admin';
-import admin, { firestore } from '../../../functions/initFirebase';
+import admin, { firestore } from '../../../functions/initFirebaseAdmin';
 import commonMiddleware from '../../utils/middleware/commonMiddleware';
 
 const handler = async (

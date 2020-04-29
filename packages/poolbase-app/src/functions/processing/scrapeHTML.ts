@@ -1,5 +1,5 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
-import { bucket } from '../initFirebase';
+import { bucket } from '../initFirebaseAdmin';
 
 import { PageData } from '../interfaces';
 

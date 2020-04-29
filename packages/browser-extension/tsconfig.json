@@ -9,12 +9,12 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "rootDir": "./src",
     "outDir": "./build",
     "allowJs": false,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "noEmit": false
   },
   "exclude": ["utils", "node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "../../locales/**/*.ts"]
 }
