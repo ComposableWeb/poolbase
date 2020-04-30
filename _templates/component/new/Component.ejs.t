@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= name %>/<%= name %>.tsx
+to: "<%= h.src() %>/components/<%= name %>/<%= name %>.tsx"
 ---
 /** @jsx jsx */
 import { jsx } from 'theme-ui';

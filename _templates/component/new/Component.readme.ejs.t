@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= name %>/Readme.md
+to: "<%= h.src() %>/components/<%= name %>/Readme.md"
 ---
 ### <%= name %>
 
