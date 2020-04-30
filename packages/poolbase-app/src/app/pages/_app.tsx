@@ -3,7 +3,7 @@ import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'theme-ui';
 import '../utils/logger';
-import { poolbaseTheme } from 'design-system/src/theme';
+import { poolbaseTheme } from '@poolbase/design-system/src/theme';
 import { appWithTranslation } from '../../functions/handlers/i18n';
 
 class MyApp extends App {

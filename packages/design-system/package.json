@@ -1,9 +1,9 @@
 {
-  "name": "design-system",
-  "version": "0.0.0-semantically-released",
+  "name": "@poolbase/design-system",
+  "version": "0.0.1",
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "dependencies": {
-    "poolbase-common": "*",
+    "@poolbase/common": "0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -30,7 +30,8 @@
         "@semantic-release/git",
         {
           "assets": [
-            "CHANGELOG.md"
+            "CHANGELOG.md",
+            "package.json"
           ],
           "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
         }

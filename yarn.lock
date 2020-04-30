@@ -8199,11 +8199,6 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-design-system@*:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/design-system/-/design-system-2.5.0.tgz#c371d24709ed977f4fe67ecba56cd8fcee1ee7f8"
-  integrity sha1-w3HSRwntl39P5n7LpWzY/O4e5/g=
-
 destroy@^1.0.4, destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
@@ -18917,6 +18912,11 @@ react-feather@^2.0.8:
   integrity sha512-J0dCEOvOxpovHeOVj3+8mAhN3/UERTfX6rSxnV6x4E+0s+STY536jhSjRfpSvTQA0SSFjYr4KrpPfdsLmK+zZg==
   dependencies:
     prop-types "^15.7.2"
+
+react-firebase-hooks@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-2.1.1.tgz#7180b86e4bd8e33699003a41e6d33f280a54319a"
+  integrity sha512-6ZvAUa5q1JJrTQxCEKCXrP6S/en3B65RAYRYHbbjUh9f1BgKPsxkdaGGBPhGKuVSLUrVqTm8PtpZ/LCtAFogKA==
 
 react-firebaseui@^4.1.0:
   version "4.1.0"

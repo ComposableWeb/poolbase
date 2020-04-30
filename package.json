@@ -4,7 +4,7 @@
   "description": "Information pool for groups and companies",
   "private": true,
   "workspaces": [
-    "./packages/*"
+    "packages/*"
   ],
   "main": "n/a",
   "scripts": {
