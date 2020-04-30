@@ -12,6 +12,7 @@ const withPWA = require('next-pwa');
 const distDir = process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next';
 const nextConfiguration = {
   pwa: {
+    disable: process.env.NODE_ENV !== 'production',
     dest: 'public',
   },
   distDir,
