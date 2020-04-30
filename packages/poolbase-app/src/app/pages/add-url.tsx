@@ -3,13 +3,11 @@ import { jsx, Styled } from 'theme-ui';
 import { useState, useEffect } from 'react';
 import { NextPage } from 'next';
 
-import withAuthUser from '../utils/pageWrappers/withAuthUser';
 import PageLayout from '../components/PageLayout';
-import { PropsWithAuthUserInfo } from 'poolbase-common';
-import { firestore, collectionData } from '../utils/auth/initFirebase';
+import { firestore, collectionData } from '../utils/initFirebase';
 import { AddUrlForm } from '../components/AddUrlForm';
 
-const AddUrlPage: NextPage<PropsWithAuthUserInfo> = () => {
+const AddUrlPage: NextPage = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -34,4 +32,4 @@ const AddUrlPage: NextPage<PropsWithAuthUserInfo> = () => {
   );
 };
 
-export default withAuthUser(AddUrlPage);
+export default AddUrlPage;

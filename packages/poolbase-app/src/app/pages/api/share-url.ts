@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import { auth } from 'firebase-admin';
 import admin, { firestore } from '../../../functions/initFirebaseAdmin';
-import commonMiddleware from '../../utils/middleware/commonMiddleware';
 
+// @TODO: refactor to use cloud function
 const handler = async (
   req: NextApiRequest & { session?: { decodedToken: auth.DecodedIdToken; token: string } },
   res: NextApiResponse
@@ -31,4 +31,4 @@ export const config = {
     bodyParser: false,
   },
 };
-export default commonMiddleware(handler);
+export default handler;

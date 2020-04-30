@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
-import { functions } from '../../utils/auth/initFirebase';
+import { functions } from '../../utils/initFirebase';
 
 export const AddUrlForm = () => {
   const router = useRouter();

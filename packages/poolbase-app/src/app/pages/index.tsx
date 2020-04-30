@@ -4,18 +4,15 @@ import { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 
 import { withTranslation } from '../../functions/handlers/i18n';
-import withAuthUser from '../utils/pageWrappers/withAuthUser';
-import { firestore, collectionData } from '../utils/auth/initFirebase';
-import { ListItem } from 'design-system/src/components/ListItem';
+import { firestore, collectionData } from '../utils/initFirebase';
+import { ListItem } from '@poolbase/design-system/src/components/ListItem';
 
 import PageLayout from '../components/PageLayout';
-import { PropsWithAuthUserInfo } from '../interfaces';
 
-interface HomePageProps extends PropsWithAuthUserInfo {
+interface HomePageProps {
   t?: (key: string) => string;
   namespacesRequired: string[];
 }
-
 
 const HomePage: NextPage<HomePageProps> = ({ t }: HomePageProps) => {
   const [data, setData] = useState([]);
@@ -43,4 +40,4 @@ HomePage.getInitialProps = () => ({
   namespacesRequired: ['common'],
 });
 
-export default withTranslation('common')(withAuthUser(HomePage) as any);
+export default withTranslation('common')(HomePage as any);

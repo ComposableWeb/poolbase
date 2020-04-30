@@ -1,24 +1,26 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { get } from 'lodash/object';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NextPage } from 'next';
+import { auth } from '../../utils/initFirebase';
 
-import AppLayout from 'design-system/src/components/AppLayout';
-import AppMain from 'design-system/src/components/AppMain';
-import { PropsWithAuthUserInfo } from 'poolbase-common';
-import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
+import AppLayout from '@poolbase/design-system/src/components/AppLayout';
+import AppMain from '@poolbase/design-system/src/components/AppMain';
 import Header from '../Header';
 import FirebaseAuth from '../FirebaseAuth';
 
-const PageLayout: NextPage<PropsWithAuthUserInfo> = (
-  props: PropsWithAuthUserInfo & { children: JSX.Element }
-): JSX.Element => {
-  const { AuthUserInfo, children } = props;
-  const AuthUser = get(AuthUserInfo, 'AuthUser', null);
-
+const PageLayout: NextPage = (props: React.PropsWithChildren<{}>): JSX.Element => {
+  const { children } = props;
+  const [user, loading, error] = useAuthState(auth);
+  if (loading) {
+    return <AppMain>loading...</AppMain>;
+  }
+  if (error) {
+    return <AppMain>{error.message}</AppMain>;
+  }
   return (
     <>
-      {!AuthUser ? (
+      {!user ? (
         <AppMain>
           <p>Sign in</p>
           <div>
@@ -27,7 +29,7 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
         </AppMain>
       ) : (
         <AppLayout>
-          <Header AuthUser={AuthUser} />
+          <Header />
           <AppMain>{children}</AppMain>
         </AppLayout>
       )}
@@ -35,4 +37,4 @@ const PageLayout: NextPage<PropsWithAuthUserInfo> = (
   );
 };
 
-export default withAuthUserInfo(PageLayout);
+export default PageLayout;
