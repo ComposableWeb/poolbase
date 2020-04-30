@@ -6,7 +6,7 @@ export const userCreateHandler = functions
   .onCreate(async (userRecord) => {
     try {
       const { email, displayName, photoURL, uid } = userRecord;
-      return await firestore.collection('users').add({
+      return await firestore.collection('users').doc(uid).set({
         uid,
         email,
         displayName,

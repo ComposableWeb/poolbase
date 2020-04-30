@@ -20,7 +20,7 @@ service cloud.firestore {
     // pages //
 
     function isOwner() {
-      return request.resource.data.userId == request.auth.uid;
+      return request.resource.data.uid == request.auth.uid;
     }
 
     match /pages/{pageId} {
@@ -28,6 +28,13 @@ service cloud.firestore {
       allow create: if isAuthenticated();
       allow update: if isAuthenticated()
                     && isOwner(); // TODO: add group level permissions
+      allow delete: if false;
+    }
+    match /users/{userId} {
+      allow read; // TODO: add group level permissions
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated()
+                    && isOwner();
       allow delete: if false;
     }
   }
