@@ -1,23 +1,17 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { NextPage } from 'next';
-import { auth } from '../../utils/initFirebase';
 
 import AppLayout from '@poolbase/design-system/src/components/AppLayout';
 import AppMain from '@poolbase/design-system/src/components/AppMain';
 import Header from '../Header';
 import FirebaseAuth from '../FirebaseAuth';
+import { useSession } from '../../hooks';
 
 const PageLayout: NextPage = (props: React.PropsWithChildren<{}>): JSX.Element => {
   const { children } = props;
-  const [user, loading, error] = useAuthState(auth);
-  if (loading) {
-    return <AppMain>loading...</AppMain>;
-  }
-  if (error) {
-    return <AppMain>{error.message}</AppMain>;
-  }
+  const user = useSession();
   return (
     <>
       {!user ? (
