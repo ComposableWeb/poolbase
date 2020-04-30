@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { NextPage } from 'next';
-import { useState, useEffect } from 'react';
+import { useCollection } from 'react-firebase-hooks/firestore';
+
+import { ListItem } from '@poolbase/design-system/src/components/ListItem';
+import { PageData } from '@poolbase/common';
 
 import { withTranslation } from '../../functions/handlers/i18n';
-import { firestore, collectionData } from '../utils/initFirebase';
-import { ListItem } from '@poolbase/design-system/src/components/ListItem';
-
+import { firestore } from '../utils/initFirebase';
 import PageLayout from '../components/PageLayout';
 
 interface HomePageProps {
@@ -15,24 +16,15 @@ interface HomePageProps {
 }
 
 const HomePage: NextPage<HomePageProps> = ({ t }: HomePageProps) => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
-    const subscription = collectionData(query, 'id').subscribe(setData);
+  const query = firestore.collection('pages').orderBy('created', 'desc').limit(30);
+  const [data, loading, error] = useCollection(query);
 
-    // Specify how to clean up after this effect:
-    return function cleanup(): void {
-      subscription.unsubscribe();
-    };
-  }, []);
   return (
     <PageLayout>
       <h1>{t('siteTitle')}</h1>
-      {data.map(
-        (page): JSX.Element => (
-          <ListItem key={page.id} data={page} />
-        )
-      )}
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {loading && <span>Collection: Loading...</span>}
+      {data && data.docs.map((page): JSX.Element => <ListItem key={page.id} data={page.data() as PageData} />)}
     </PageLayout>
   );
 };

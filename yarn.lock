@@ -20083,14 +20083,7 @@ rx-lite@*, rx-lite@^4.0.8:
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
   integrity sha1-Cx4Rr4vESDbwSmQH6S2kJGe3lEQ=
 
-rxfire@^3.12.2:
-  version "3.12.2"
-  resolved "https://registry.yarnpkg.com/rxfire/-/rxfire-3.12.2.tgz#dee6722fb7bd89b9be8c7c8d16891faeaf7c6fe8"
-  integrity sha512-SVxyiZWOVxlRDMS7lMHEaALJ4wTROF2O6lzN4El5HT+VqksBbtZiGJCMdLLp2eMhKNDVO/DVJAQ4G06oWz+U1g==
-  dependencies:
-    tslib "1.11.1"
-
-rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.5.5:
+rxjs@^6.4.0, rxjs@^6.5.3:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
   integrity sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==

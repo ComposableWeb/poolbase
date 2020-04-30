@@ -1,33 +1,25 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui';
-import { useState, useEffect } from 'react';
+import { jsx } from 'theme-ui';
 import { NextPage } from 'next';
+import { useCollection } from 'react-firebase-hooks/firestore';
+
+import { ListItem } from '@poolbase/design-system/src/components/ListItem';
+import { PageData } from '@poolbase/common';
 
 import PageLayout from '../components/PageLayout';
-import { firestore, collectionData } from '../utils/initFirebase';
+import { firestore } from '../utils/initFirebase';
 import { AddUrlForm } from '../components/AddUrlForm';
 
 const AddUrlPage: NextPage = () => {
-  const [data, setData] = useState([]);
+  const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
+  const [data, loading, error] = useCollection(query);
 
-  useEffect(() => {
-    const query = firestore.collection('pages').orderBy('created', 'desc').limit(3);
-    const subscription = collectionData(query, 'id').subscribe(setData);
-    // Specify how to clean up after this effect:
-    return function cleanup(): void {
-      subscription.unsubscribe();
-    };
-  }, []);
   return (
     <PageLayout>
       <AddUrlForm />
-      {data.map(
-        (page): JSX.Element => (
-          <>
-            <Styled.h3 key={page.id}>{!page.metaTitle ? page.url : page.metaTitle}</Styled.h3>
-          </>
-        )
-      )}
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {loading && <span>Collection: Loading...</span>}
+      {data && data.docs.map((page): JSX.Element => <ListItem key={page.id} data={page.data() as PageData} />)}
     </PageLayout>
   );
 };
