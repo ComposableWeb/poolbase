@@ -7,6 +7,7 @@ export const AppLayout: React.FC = (props: React.PropsWithChildren<{}>) => (
     columns={[0, '150px 1fr']}
     sx={{
       height: '100%',
+      backgroundColor: 'background',
     }}
     {...props}
   />

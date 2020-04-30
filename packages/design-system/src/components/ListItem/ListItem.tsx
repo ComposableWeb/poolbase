@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box, Styled } from 'theme-ui';
 
-import { PageData } from '../../../../poolbase-app/src/app/interfaces';
+import { PageData } from 'poolbase-common';
 
 export const ListItem: React.FC<{ data: PageData }> = ({
   data,
