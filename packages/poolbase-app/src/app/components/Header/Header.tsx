@@ -6,6 +6,8 @@ import { PlusSquare as Add, Moon, Sun } from 'react-feather';
 import AppBar from '@poolbase/design-system/src/components/AppBar';
 import NavIconButton from '@poolbase/design-system/src/components/NavIconButton';
 
+import UserSettingsMenu from '../UserSettingsMenu';
+
 export default function Header(): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
   return (
@@ -24,6 +26,7 @@ export default function Header(): JSX.Element {
       >
         {colorMode === 'light' ? <Moon /> : <Sun />}
       </NavIconButton>
+      <UserSettingsMenu />
     </AppBar>
   );
 }
