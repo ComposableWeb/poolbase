@@ -1,17 +1,16 @@
 export interface AuthUser {
-  id: string;
+  uid: string;
   email: string;
   emailVerified: boolean;
 }
 export interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
-export interface AuthUserInfo {
-  AuthUser: AuthUser;
-  token: string;
-}
-export interface PropsWithAuthUserInfo {
-  AuthUserInfo?: AuthUserInfo;
+export interface UserProfileData {
+  displayName: string;
+  email?: string;
+  photoURL?: string;
+  uid?: string
 }
 
 export interface PageData {

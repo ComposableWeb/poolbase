@@ -5,9 +5,13 @@
     "module": "commonjs",
     "strict": true,
     "outDir": "../../../../dist/app/functions",
-    "baseUrl": "./",
     "sourceMap": true,
-    "target": "es2017"
+    "target": "es2017",
+    "baseUrl": ".",
+    "paths": {
+      "@poolbase/design-system": ["../../../design-system"],
+      "@poolbase/common": ["../../../poolbase-common"]
+    }
   },
   "compileOnSave": true,
   "include": ["index.ts", "**/*.ts"]

@@ -7,7 +7,7 @@ const consola = require('consola');
 consola.withTag('app');
 consola.wrapConsole();
 const withPlugins = require('next-compose-plugins');
-const withTM = require('next-transpile-modules')(['design-system']);
+const withTM = require('next-transpile-modules')(['@poolbase/design-system', '@poolbase/common']);
 const withPWA = require('next-pwa');
 const distDir = process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next';
 const nextConfiguration = {

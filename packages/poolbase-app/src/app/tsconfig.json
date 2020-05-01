@@ -7,7 +7,12 @@
     "noEmit": true,
     "allowJs": true,
     "strict": false,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@poolbase/design-system": ["../../../design-system"],
+      "@poolbase/common": ["../../../poolbase-common"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "env.js", "next.config.js"]
 }

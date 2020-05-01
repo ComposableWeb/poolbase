@@ -1,7 +1,7 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
 import { bucket } from '../initFirebaseAdmin';
 
-import { PageData } from '../interfaces';
+import { PageData } from '@poolbase/common';
 
 interface ScrapeData extends Partial<PageData> {
   'processed.html': boolean;
