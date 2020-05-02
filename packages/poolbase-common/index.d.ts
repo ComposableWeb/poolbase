@@ -9,10 +9,22 @@ export interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
 export interface UserProfileData {
-  displayName: string;
+  displayName?: string;
   email?: string;
   photoURL?: string;
-  uid?: string;
+}
+
+export interface UserAccountData {
+  name: string;
+  email?: string;
+  photoURL?: string;
+  uid: string;
+  userProfileId?: string;
+}
+
+export interface UserSessionData {
+  account: UserAccountData;
+  profile?: UserProfileData;
 }
 
 export interface PageData {

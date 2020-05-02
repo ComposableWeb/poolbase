@@ -3,10 +3,19 @@ import { jsx } from 'theme-ui';
 
 import Avatar from '@poolbase/design-system/src/components/Avatar';
 
-import { useAuthUserProfile } from '../../hooks';
+import { useSession } from '../../hooks';
 
 export const UserSettingsMenu: React.FC = () => {
-  const [userProfile] = useAuthUserProfile();
-  return <>{userProfile ? <Avatar user={userProfile} /> : null}</>;
+  const user = useSession();
+
+  return (
+    <>
+      {user && user.profile ? (
+        <Avatar user={user.profile} />
+      ) : user && user.account ? (
+        <Avatar user={user.account} />
+      ) : null}
+    </>
+  );
 };
 export default UserSettingsMenu;
