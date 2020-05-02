@@ -6,6 +6,9 @@ service cloud.firestore {
     function hasRoleForResource(targetResource, targetRoles) {
       return targetResource.data.role in targetRoles;
     }
+    function hasRequiredFields(fieldList) {
+      return request.resource.data.keys().hasAll(fieldList);
+    }
 
     // USERS //
 
@@ -22,17 +25,31 @@ service cloud.firestore {
     function isOwner() {
       return request.resource.data.uid == request.auth.uid;
     }
-
+    // default: no permission
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    // pages snapshots of a webpage at a given time
     match /pages/{pageId} {
       allow read;
-      allow create: if isAuthenticated();
+      allow create: if isAuthenticated() && hasRequiredFields(['url']);
       allow update: if isAuthenticated()
                     && isOwner(); // TODO: add group level permissions
       allow delete: if false;
     }
+    // app user accounts (private)
     match /users/{userId} {
-      allow read; // TODO: add group level permissions
-      allow create: if isAuthenticated();
+      allow read: if isAuthenticated()
+                    && isOwner();
+      allow create: if false; // created only by cloud function (admin)
+      allow update: if isAuthenticated()
+                    && isOwner();
+      allow delete: if false;
+    }
+    // public user profiles
+    match /userProfiles/{profileId} {
+      allow read;
+      allow create: if false; // created only by cloud function (admin)
       allow update: if isAuthenticated()
                     && isOwner();
       allow delete: if false;

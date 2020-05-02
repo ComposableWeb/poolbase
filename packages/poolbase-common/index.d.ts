@@ -1,3 +1,5 @@
+import { FieldValue } from '@google-cloud/firestore';
+
 export interface AuthUser {
   uid: string;
   email: string;
@@ -10,22 +12,25 @@ export interface UserProfileData {
   displayName: string;
   email?: string;
   photoURL?: string;
-  uid?: string
+  uid?: string;
 }
 
 export interface PageData {
   id: string;
+  created: FieldValue | string;
   url: string;
+  uid: string;
+  title?: string;
   status: number | string | null;
-  metaKeywords: string[] | null;
-  metaDescription: string | null;
-  metaTitle: string | null;
-  metaAuthor: string | null;
-  metaPublisher: string | null;
-  mainText: string | null;
-  metaIconUrl: string | null;
-  mainImageUrl: string | null;
+  metaKeywords?: string[] | null;
+  metaDescription?: string | null;
+  metaTitle?: string | null;
+  metaAuthor?: string | null;
+  metaPublisher?: string | null;
+  mainText?: string | null;
+  metaIconUrl?: string | null;
+  mainImageUrl?: string | null;
   processed: {
-    html: boolean;
+    html?: boolean;
   };
 }
