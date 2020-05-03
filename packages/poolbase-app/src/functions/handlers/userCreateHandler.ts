@@ -1,5 +1,12 @@
 import * as functions from 'firebase-functions';
 import { firestore } from '../initFirebaseAdmin';
+
+const PROFILE_DEFAULT_VALUES = {
+  isEmailPublic: true,
+};
+const ACCOUNT_DEFAULT_VALUES = {
+  isSubscribedToNL: false,
+};
 export const userCreateHandler = functions
   .region('europe-west1')
   .auth.user()
@@ -7,12 +14,14 @@ export const userCreateHandler = functions
     const { email, displayName, photoURL, uid } = userRecord;
     let userProfileId;
     // if we have a photo or diplayName, we create a public profile
-    if (displayName || photoURL) {
+    if (displayName || photoURL || email) {
       try {
         const profileDocRef = await firestore.collection('userProfiles').add({
+          ...PROFILE_DEFAULT_VALUES,
           uid,
           displayName,
           photoURL,
+          email,
         });
         userProfileId = profileDocRef.id;
       } catch (e) {
@@ -26,6 +35,7 @@ export const userCreateHandler = functions
         .collection('users')
         .doc(uid)
         .set({
+          ...ACCOUNT_DEFAULT_VALUES,
           uid,
           email,
           name: displayName || '',

@@ -12,6 +12,7 @@ export interface UserProfileData {
   displayName?: string;
   email?: string;
   photoURL?: string;
+  isEmailPublic: boolean;
 }
 
 export interface UserAccountData {
