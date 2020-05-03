@@ -16,3 +16,13 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// export all the components
+
+export * from './components/AppBar';
+export * from './components/AppLayout';
+export * from './components/AppMain';
+export * from './components/Avatar';
+export * from './components/Form';
+export * from './components/ListItem';
+export * from './components/NavIconButton';
