@@ -2,9 +2,7 @@
 to: "<%= h.src() %>/components/<%= name %>/<%= name %>.tsx"
 ---
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 
-export const <%= name %>: React.FC = (props: React.PropsWithChildren<{ }>) => (
-  <div {...props} />
-);
+export const <%= name %>: React.FC = (props: React.PropsWithChildren<{}>) => <Box {...props} />;
 export default <%= name %>;
