@@ -1,13 +1,17 @@
 /** @jsx jsx */
 import { jsx, Box, Avatar as TUIAvatar } from 'theme-ui';
 
-import { UserProfileData } from '@poolbase/common';
+import { UserProfileData, UserAccountData } from '@poolbase/common';
 
-export const Avatar: React.FC<{ user: UserProfileData }> = ({ user }: { user: UserProfileData }) => {
+export const Avatar: React.FC<{ user: UserProfileData | UserAccountData }> = ({
+  user,
+}: {
+  user: UserProfileData | UserAccountData;
+}) => {
   if (user.photoURL) {
     return <TUIAvatar src={user.photoURL} />;
   }
-
+  const name = (user as UserProfileData).displayName || (user as UserAccountData).name;
   return (
     <Box
       bg="primary"
@@ -21,7 +25,7 @@ export const Avatar: React.FC<{ user: UserProfileData }> = ({ user }: { user: Us
         justifyContent: 'center',
       }}
     >
-      {!!user.displayName && user.displayName.split(' ').reduce((acc, name) => acc + name[0], '')}
+      {!!name && name.split(' ').reduce((acc, name) => acc + name[0], '')}
     </Box>
   );
 };
