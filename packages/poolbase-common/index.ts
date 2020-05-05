@@ -1,4 +1,4 @@
 import './env';
 
 export * from './src';
-export * from './common';
+export * from './common.d';
