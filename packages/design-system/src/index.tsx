@@ -27,3 +27,4 @@ export * from './components/Avatar';
 export * from './components/Form';
 export * from './components/ListItem';
 export * from './components/NavIconButton';
+export * from './components/SubmitButton';
