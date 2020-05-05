@@ -7,7 +7,7 @@ import { ListItem } from '@poolbase/design-system/src/components/ListItem';
 import { PageData } from '@poolbase/common';
 
 import { withTranslation } from '../../functions/handlers/i18n';
-import { firestore } from '../utils/initFirebase';
+import { firestore } from '@poolbase/common';
 import PageLayout from '../components/PageLayout';
 
 interface HomePageProps {

@@ -19,6 +19,7 @@ ReactDOM.render(
 
 // export all the components
 
+export * from './theme';
 export * from './components/AppBar';
 export * from './components/AppLayout';
 export * from './components/AppMain';

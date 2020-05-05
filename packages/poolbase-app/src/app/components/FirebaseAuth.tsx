@@ -1,7 +1,8 @@
 /* globals window */
+import firebase from 'firebase/app';
 import React, { useEffect, useState } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from '../utils/initFirebase';
+import { auth } from '@poolbase/common';
 
 // Init the Firebase app.
 
@@ -36,9 +37,7 @@ const FirebaseAuth = (): JSX.Element => {
       setRenderAuth(true);
     }
   }, []);
-  return (
-    <div>{renderAuth ? <StyledFirebaseAuth uiConfig={firebaseAuthConfig} firebaseAuth={firebase.auth()} /> : null}</div>
-  );
+  return <div>{renderAuth ? <StyledFirebaseAuth uiConfig={firebaseAuthConfig} firebaseAuth={auth} /> : null}</div>;
 };
 
 export default FirebaseAuth;

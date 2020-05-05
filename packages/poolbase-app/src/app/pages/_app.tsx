@@ -5,7 +5,7 @@ import { ThemeProvider } from 'theme-ui';
 
 import { poolbaseTheme } from '@poolbase/design-system/src/theme';
 
-import '../utils/logger';
+import '@poolbase/common/src/logger';
 import { UserContext, useAuthUserProfile } from '../hooks';
 import { appWithTranslation } from '../../functions/handlers/i18n';
 

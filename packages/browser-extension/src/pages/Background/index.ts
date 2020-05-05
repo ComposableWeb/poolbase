@@ -1,4 +1,4 @@
-import '../../common/logger';
+import '@poolbase/common/src/logger';
 import i18next, { defaultOptions } from '../../common/i18n';
 defaultOptions.ns = [...defaultOptions.ns, 'browser-ext-background'];
 i18next.init(defaultOptions).then((t) => {
