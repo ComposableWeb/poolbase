@@ -24,4 +24,4 @@ const nextConfiguration = {
     FIREBASE_PUBLIC_API_KEY: process.env.FIREBASE_PUBLIC_API_KEY,
   },
 };
-module.exports = withPlugins([withTM, [withPWA]], nextConfiguration);
+module.exports = withPlugins([withTM, withPWA], nextConfiguration);

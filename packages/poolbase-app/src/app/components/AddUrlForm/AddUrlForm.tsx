@@ -3,17 +3,16 @@ import { jsx, Label, Input } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
-import { Form, SubmitButton } from '@poolbase/design-system/src';
+import { Form, SubmitButton } from '@poolbase/design-system';
 
-import { functions } from '@poolbase/common';
+import { api } from '@poolbase/common';
 
 export const AddUrlForm: React.FC = () => {
   const router = useRouter();
   const { register, handleSubmit, formState } = useForm();
   const onSubmit = async (data): Promise<void> => {
     try {
-      const addURL = functions.httpsCallable('addURL');
-      await addURL(data);
+      await api.addURL(data);
     } catch (error) {
       console.error(error);
     }

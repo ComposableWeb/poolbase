@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 
-import Avatar from '@poolbase/design-system/src/components/Avatar';
+import { Avatar } from '@poolbase/design-system';
 
 import { useSession } from '../../hooks';
 

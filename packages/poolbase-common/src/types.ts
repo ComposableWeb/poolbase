@@ -5,9 +5,11 @@ export interface AuthUser {
   email: string;
   emailVerified: boolean;
 }
+
 export interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
+
 export interface UserProfileData {
   displayName?: string;
   email?: string;

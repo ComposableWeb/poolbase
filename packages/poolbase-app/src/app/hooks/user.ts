@@ -2,9 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { UserProfileData, UserSessionData, UserAccountData } from '@poolbase/common';
-
-import { firestore, auth } from '@poolbase/common';
+import { firestore, auth, UserProfileData, UserSessionData, UserAccountData } from '@poolbase/common';
 
 export const UserContext = createContext({
   user: null,
