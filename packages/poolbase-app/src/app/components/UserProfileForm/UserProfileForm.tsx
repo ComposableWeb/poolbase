@@ -6,7 +6,7 @@ import { UserProfileData, api } from '@poolbase/common';
 import { Form, SubmitButton } from '@poolbase/design-system';
 
 export interface UserProfileProps {
-  profile: UserProfileData;
+  profile: UserProfileData | {};
 }
 export const UserProfileForm: React.FC<UserProfileProps> = (props: UserProfileProps) => {
   const { register, handleSubmit, formState } = useForm({ defaultValues: props.profile });

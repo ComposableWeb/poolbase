@@ -9,6 +9,9 @@ consola.wrapConsole();
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules')(['@poolbase/design-system', '@poolbase/common']);
 const withPWA = require('next-pwa');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 const distDir = process.env.NODE_ENV === 'development' ? '.next' : '../../../../dist/app/functions/next';
 const nextConfiguration = {
   pwa: {
@@ -24,4 +27,4 @@ const nextConfiguration = {
     FIREBASE_PUBLIC_API_KEY: process.env.FIREBASE_PUBLIC_API_KEY,
   },
 };
-module.exports = withPlugins([withTM, withPWA], nextConfiguration);
+module.exports = withPlugins([withTM, withPWA, withBundleAnalyzer], nextConfiguration);

@@ -76,7 +76,7 @@ export default class CustomDocument extends Document {
           as="body"
           sx={{
             height: '100%',
-            '& > div': {
+            '& > div:first-child': {
               height: '100%',
             },
           }}
