@@ -4,10 +4,13 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "dependencies": {
     "@poolbase/common": "0.0.1",
+    "@theme-ui/color": "^0.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-feather": "^2.0.8",
     "react-scripts": "3.4.1",
     "react-useanimations": "^1.2.13",
+    "reakit": "^1.0.0-rc.2",
     "theme-ui": "^0.3.1",
     "typescript": "~3.8.3"
   },

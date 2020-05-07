@@ -1,5 +1,6 @@
 // Based on https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 // and https://tailwindcss.com/components
+import { transparentize } from '@theme-ui/color';
 
 export const borderWidths = {
   px: '1px',
@@ -152,6 +153,7 @@ export const colors = {
   text: baseColors.gray[8],
   textInverted: baseColors.gray[2],
   background: baseColors.gray[2],
+  backgroundTransparent: transparentize(baseColors.gray[2], 0.8),
   backgroundInverted: baseColors.gray[8],
   primary: baseColors.blue[7],
   primaryHover: baseColors.blue[8],
@@ -169,6 +171,7 @@ export const colors = {
       text: baseColors.gray[4],
       textInverted: baseColors.gray[5],
       background: baseColors.gray[9],
+      backgroundTransparent: (theme) => transparentize(baseColors.gray[9], 0.8)(theme),
       backgroundInverted: baseColors.black,
       primary: '#0cf',
       secondary: '#90c',

@@ -28,3 +28,5 @@ export * from './components/Form';
 export * from './components/ListItem';
 export * from './components/NavIconButton';
 export * from './components/SubmitButton';
+export * from './components/TabComponents';
+export * from './components/DialogComponents';
