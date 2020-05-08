@@ -22,7 +22,7 @@ export const UserProfileForm: React.FC<UserProfileProps> = (props: UserProfilePr
       <Label htmlFor="displayName">Name</Label>
       <Input name="displayName" mb={3} ref={register} />
       <Label htmlFor="email">Email</Label>
-      <Input name="email" mb={3} disabled={true} ref={register} />
+      <Input name="email" mb={3} ref={register} />
 
       <Box>
         <Label mb={3}>
