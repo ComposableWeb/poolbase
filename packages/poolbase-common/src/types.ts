@@ -1,4 +1,5 @@
 import { FieldValue } from '@google-cloud/firestore';
+import * as yup from 'yup';
 
 export interface AuthUser {
   uid: string;
@@ -10,42 +11,46 @@ export interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
 
-export interface UserProfileData {
-  displayName?: string;
-  email?: string;
-  photoURL?: string;
-  isEmailPublic: boolean;
-}
+export const UserProfileSchema = yup.object().shape({
+  displayName: yup.string().notRequired(),
+  email: yup.string().email().notRequired(),
+  photoURL: yup.string().url().notRequired(),
+  isEmailPublic: yup.boolean().notRequired(),
+});
+export type UserProfileData = yup.InferType<typeof UserProfileSchema>;
 
-export interface UserAccountData {
-  name: string;
-  email?: string;
-  photoURL?: string;
-  uid: string;
-  userProfileId?: string;
-}
+export const UserAccountSchema = yup.object().shape({
+  name: yup.string().required().min(3),
+  email: yup.string().email().required(),
+  photoURL: yup.string().url().notRequired(),
+  uid: yup.string().required(),
+  userProfileId: yup.string().notRequired(),
+});
+export type UserAccountData = yup.InferType<typeof UserAccountSchema>;
 
 export interface UserSessionData {
   account: UserAccountData;
   profile?: UserProfileData;
 }
 
-export interface PageData {
-  id: string;
-  created: FieldValue | string;
-  url: string;
-  uid: string;
-  title?: string;
-  status: number | string | null;
-  metaKeywords?: string[] | null;
-  metaDescription?: string | null;
-  metaTitle?: string | null;
-  metaAuthor?: string | null;
-  metaPublisher?: string | null;
-  mainText?: string | null;
-  metaIconUrl?: string | null;
-  mainImageUrl?: string | null;
-  processed: {
-    html?: boolean;
-  };
-}
+export const PageSchema = yup.object().shape({
+  id: yup.string().required(),
+  created: yup.date().required(),
+  url: yup.string().url().required(),
+  uid: yup.string().required(),
+  title: yup.string().notRequired(),
+  status: yup.string().nullable(),
+  metaKeywords: yup.array().of(yup.string()).nullable(),
+  metaDescription: yup.string().nullable(),
+  metaTitle: yup.string().nullable(),
+  metaAuthor: yup.string().nullable(),
+  metaPublisher: yup.string().nullable(),
+  mainText: yup.string().nullable(),
+  metaIconUrl: yup.string().nullable(),
+  mainImageUrl: yup.string().nullable(),
+  processed: yup.object().shape({
+    html: yup.boolean().notRequired(),
+  }),
+});
+
+export type PageData = yup.InferType<typeof PageSchema>;

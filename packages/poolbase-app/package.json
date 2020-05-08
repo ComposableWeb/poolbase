@@ -83,7 +83,8 @@
     "react-firebaseui": "^4.1.0",
     "react-hook-form": "^5.6.1",
     "reakit": "^1.0.0-rc.2",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "yup": "^0.28.5"
   },
   "devDependencies": {
     "@firebase/testing": "^0.19.2",

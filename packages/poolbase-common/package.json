@@ -34,6 +34,7 @@
     "@types/eslint": "^6.8.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/prettier": "^2.0.0",
+    "@types/yup": "^0.28.0",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
     "eslint": "^6.8.0",
@@ -45,6 +46,7 @@
   "dependencies": {
     "consola": "^2.11.3",
     "dotenv": "^8.2.0",
-    "firebase": "^7.14.2"
+    "firebase": "^7.14.2",
+    "yup": "^0.28.5"
   }
 }
