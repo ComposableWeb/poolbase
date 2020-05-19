@@ -12,7 +12,7 @@ export interface PropsWithAuthUser {
 }
 
 export const UserProfileSchema = yup.object().shape({
-  displayName: yup.string().notRequired(),
+  displayName: yup.string().required(),
   email: yup.string().email().notRequired(),
   photoURL: yup.string().url().notRequired(),
   isEmailPublic: yup.boolean().notRequired(),
@@ -40,14 +40,14 @@ export const PageSchema = yup.object().shape({
   uid: yup.string().required(),
   title: yup.string().notRequired(),
   status: yup.string().nullable(),
-  metaKeywords: yup.array().of(yup.string()).nullable(),
-  metaDescription: yup.string().nullable(),
-  metaTitle: yup.string().nullable(),
-  metaAuthor: yup.string().nullable(),
-  metaPublisher: yup.string().nullable(),
-  mainText: yup.string().nullable(),
-  metaIconUrl: yup.string().nullable(),
-  mainImageUrl: yup.string().nullable(),
+  metaKeywords: yup.array().of(yup.string()).nullable().notRequired(),
+  metaDescription: yup.string().nullable().notRequired(),
+  metaTitle: yup.string().nullable().notRequired(),
+  metaAuthor: yup.string().nullable().notRequired(),
+  metaPublisher: yup.string().nullable().notRequired(),
+  mainText: yup.string().nullable().notRequired(),
+  metaIconUrl: yup.string().nullable().notRequired(),
+  mainImageUrl: yup.string().nullable().notRequired(),
   processed: yup.object().shape({
     html: yup.boolean().notRequired(),
   }),
