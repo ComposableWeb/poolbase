@@ -23,15 +23,16 @@ export const UserProfileForm: React.FC<UserProfileProps> = (props: UserProfilePr
       <Input name="displayName" mb={3} ref={register} />
       <Label htmlFor="email">Email</Label>
       <Input name="email" mb={3} ref={register} />
-
       <Box>
         <Label mb={3}>
           <Checkbox name="isEmailPublic" ref={register} />
           Show email on profile
         </Label>
       </Box>
-      <Label htmlFor="twitter">Twitter</Label>
+      <Label htmlFor="twitter">Twitter Username</Label>
       <Input name="twitter" mb={3} ref={register} />
+      <Label htmlFor="github">Github Username</Label>
+      <Input name="github" mb={3} ref={register} />
       <SubmitButton {...formState}>Save</SubmitButton>
     </Form>
   );
