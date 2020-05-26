@@ -1,7 +1,7 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
 import { bucket } from '../initFirebaseAdmin';
 
-import { PageData } from '@poolbase/common';
+import { PageData } from '../poolbase-common';
 
 interface ScrapeData extends Partial<PageData> {
   'processed.html': boolean;
@@ -52,7 +52,7 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
   page.on('console', logMessage);
   try {
     const response = await page.goto(url, { waitUntil: 'networkidle2' });
-    data['status'] = response?.status() || 'failed';
+    data['status'] = response?.status().toString() || 'failed';
   } catch (err) {
     console.error(err);
     await browser.close();

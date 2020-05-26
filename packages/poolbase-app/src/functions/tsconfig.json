@@ -9,7 +9,7 @@
     "target": "es2017",
     "baseUrl": ".",
     "paths": {
-      "@poolbase/common": ["../../../poolbase-common"]
+      "@poolbase/common": ["./poolbase-common"]
     }
   },
   "compileOnSave": true,

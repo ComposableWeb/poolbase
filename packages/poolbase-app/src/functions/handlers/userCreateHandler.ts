@@ -1,11 +1,15 @@
 import * as functions from 'firebase-functions';
-import { firestore } from '../initFirebaseAdmin';
+import admin, { firestore } from '../initFirebaseAdmin';
 
 const PROFILE_DEFAULT_VALUES = {
   isEmailPublic: true,
+  created: admin.firestore.FieldValue.serverTimestamp(),
+  updated: admin.firestore.FieldValue.serverTimestamp(),
 };
 const ACCOUNT_DEFAULT_VALUES = {
   isSubscribedToNL: false,
+  created: admin.firestore.FieldValue.serverTimestamp(),
+  updated: admin.firestore.FieldValue.serverTimestamp(),
 };
 export const userCreateHandler = functions
   .region('europe-west1')
@@ -16,14 +20,17 @@ export const userCreateHandler = functions
     // if we have a photo or diplayName, we create a public profile
     if (displayName || photoURL || email) {
       try {
-        const profileDocRef = await firestore.collection('userProfiles').add({
-          ...PROFILE_DEFAULT_VALUES,
-          uid,
-          displayName,
-          photoURL,
-          email,
-        });
-        userProfileId = profileDocRef.id;
+        await firestore
+          .collection('userProfiles')
+          .doc(uid)
+          .set({
+            ...PROFILE_DEFAULT_VALUES,
+            uid,
+            displayName,
+            photoURL,
+            email,
+          });
+        userProfileId = uid;
       } catch (e) {
         console.error(e);
         throw e;

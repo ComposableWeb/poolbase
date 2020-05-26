@@ -2,7 +2,7 @@
 import { jsx, Label, Input } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 
-import { UserAccountData, api } from '@poolbase/common';
+import { UserAccountData, UserAccountSchema, api } from '@poolbase/common';
 import { Form, SubmitButton } from '@poolbase/design-system';
 
 export interface UserAccountProps {
@@ -12,7 +12,14 @@ export const UserAccountForm: React.FC<UserAccountProps> = (props: UserAccountPr
   const { register, handleSubmit, formState } = useForm({ defaultValues: props.account });
   const onSubmit = async (data): Promise<void> => {
     try {
-      await api.updateUserProfile(data);
+      // Validate
+      const valid = await UserAccountSchema.isValid(data);
+      if (valid) {
+        await api.saveUserAccount(data);
+      } else {
+        UserAccountSchema.validate(data).catch(console.error);
+        // @TODO: propagate error to form
+      }
     } catch (error) {
       console.error(error);
     }

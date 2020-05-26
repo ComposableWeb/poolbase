@@ -3,14 +3,14 @@ import { WriteResult } from '@google-cloud/firestore';
 
 import admin, { firestore } from '../initFirebaseAdmin';
 
-import { UserProfileSchema, UserProfileData } from '../poolbase-common';
+import { UserAccountSchema, UserAccountData } from '../poolbase-common';
 
-export const saveUserProfileHandler = functions.region('europe-west1').https.onCall(
-  async (data: UserProfileData, context): Promise<void | WriteResult> => {
+export const saveUserAccountHandler = functions.region('europe-west1').https.onCall(
+  async (data: UserAccountData, context): Promise<void | WriteResult> => {
     // Validate
-    const valid = await UserProfileSchema.isValid(data);
+    const valid = await UserAccountSchema.isValid(data);
     if (!valid) {
-      UserProfileSchema.validate(data).catch((validationError) => {
+      UserAccountSchema.validate(data).catch((validationError) => {
         console.error(validationError);
         // Throwing an HttpsError so that the client gets the error details.
         throw new functions.https.HttpsError('invalid-argument', validationError.errors.join(' '));
@@ -23,7 +23,7 @@ export const saveUserProfileHandler = functions.region('europe-west1').https.onC
     }
 
     return await firestore
-      .collection('userProfiles')
+      .collection('users')
       .doc(context.auth.uid)
       .set({
         ...data,

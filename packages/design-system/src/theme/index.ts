@@ -171,7 +171,7 @@ export const colors = {
       text: baseColors.gray[4],
       textInverted: baseColors.gray[5],
       background: baseColors.gray[9],
-      backgroundTransparent: (theme) => transparentize(baseColors.gray[9], 0.8)(theme),
+      backgroundTransparent: transparentize(baseColors.gray[9], 0.8),
       backgroundInverted: baseColors.black,
       primary: '#0cf',
       secondary: '#90c',

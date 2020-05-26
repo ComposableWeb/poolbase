@@ -2,7 +2,7 @@
 import { jsx, Box, Label, Input, Checkbox } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 
-import { UserProfileData, api } from '@poolbase/common';
+import { UserProfileData, UserProfileSchema, api } from '@poolbase/common';
 import { Form, SubmitButton } from '@poolbase/design-system';
 
 export interface UserProfileProps {
@@ -12,7 +12,15 @@ export const UserProfileForm: React.FC<UserProfileProps> = (props: UserProfilePr
   const { register, handleSubmit, formState } = useForm({ defaultValues: props.profile });
   const onSubmit = async (data): Promise<void> => {
     try {
-      await api.updateUserProfile(data);
+      console.log(data);
+      // Validate
+      const valid = await UserProfileSchema.isValid(data);
+      if (valid) {
+        await api.saveUserProfile(data);
+      } else {
+        UserProfileSchema.validate(data).catch(console.error);
+        // @TODO: propagate error to form
+      }
     } catch (error) {
       console.error(error);
     }

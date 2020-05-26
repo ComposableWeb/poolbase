@@ -12,6 +12,7 @@ export interface PropsWithAuthUser {
 }
 
 export const UserProfileSchema = yup.object().shape({
+  uid: yup.string().notRequired(),
   displayName: yup.string().required(),
   email: yup.string().email().notRequired(),
   photoURL: yup.string().url().notRequired(),
@@ -35,7 +36,6 @@ export interface UserSessionData {
 
 export const PageSchema = yup.object().shape({
   id: yup.string().required(),
-  created: yup.date().required(),
   url: yup.string().url().required(),
   uid: yup.string().required(),
   title: yup.string().notRequired(),
@@ -49,7 +49,7 @@ export const PageSchema = yup.object().shape({
   metaIconUrl: yup.string().nullable().notRequired(),
   mainImageUrl: yup.string().nullable().notRequired(),
   processed: yup.object().shape({
-    html: yup.boolean().notRequired(),
+    html: yup.boolean().nullable().notRequired(),
   }),
 });
 

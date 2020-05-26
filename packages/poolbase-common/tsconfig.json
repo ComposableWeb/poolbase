@@ -9,5 +9,5 @@
     "jsx": "react"
   },
   "exclude": ["node_modules"],
-  "include": ["index.tsx", "**/*.ts", "**/*.tsx"]
+  "include": ["index.ts", "**/*.ts", "**/*.tsx"]
 }
