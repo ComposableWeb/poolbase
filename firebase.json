@@ -7,6 +7,9 @@
     "functions": {
       "host": "127.0.0.1",
       "port": "5001"
+    },
+    "ui": {
+      "enabled": true
     }
   },
   "firestore": {
@@ -15,32 +18,8 @@
   },
   "functions": {
     "source": "dist/app/functions",
-    "predeploy": ["yarn build"]
-  },
-  "hosting": [
-    {
-      "target": "app",
-      "public": "dist/app/functions/public",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "function": "next"
-        }
-      ],
-      "predeploy": "yarn build"
-    },
-    {
-      "target": "landing",
-      "public": "dist/landing/public",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ],
-      "predeploy": "yarn build"
-    }
-  ]
+    "predeploy": [
+      "yarn build"
+    ]
+  }
 }

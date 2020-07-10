@@ -1,0 +1,6 @@
+{
+  "siteTitle": "Poolbase - Productivity with a self documenting knowledge base",
+  "signIn": "Sign In",
+  "error-with-status": "A {{statusCode}} error occurred on server",
+  "error-without-status": "An error occurred on the server"
+}
