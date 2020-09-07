@@ -1,5 +1,4 @@
-import { FieldValue } from '@google-cloud/firestore';
-import * as yup from 'yup';
+import * as zod from 'zod';
 
 export interface AuthUser {
   uid: string;
@@ -11,46 +10,41 @@ export interface PropsWithAuthUser {
   AuthUser: AuthUser;
 }
 
-export const UserProfileSchema = yup.object().shape({
-  uid: yup.string().notRequired(),
-  displayName: yup.string().required(),
-  email: yup.string().email().notRequired(),
-  photoURL: yup.string().url().notRequired(),
-  isEmailPublic: yup.boolean().notRequired(),
+export const UserProfileSchema = zod.object({
+  displayName: zod.string(),
+  email: zod.string().email().optional(),
+  photoURL: zod.string().url().optional(),
+  isEmailPublic: zod.boolean().optional(),
 });
-export type UserProfileData = yup.InferType<typeof UserProfileSchema>;
 
-export const UserAccountSchema = yup.object().shape({
-  name: yup.string().required().min(3),
-  email: yup.string().email().required(),
-  photoURL: yup.string().url().notRequired(),
-  uid: yup.string().required(),
-  userProfileId: yup.string().notRequired(),
+export type UserProfileData = zod.infer<typeof UserProfileSchema>;
+
+export const UserAccountSchema = zod.object({
+  name: zod.string().min(3),
+  email: zod.string().email(),
+  photoURL: zod.string().url().optional(),
+  uid: zod.string(),
+  profile: UserProfileSchema,
 });
-export type UserAccountData = yup.InferType<typeof UserAccountSchema>;
+export type UserAccountData = zod.infer<typeof UserAccountSchema>;
 
-export interface UserSessionData {
-  account: UserAccountData;
-  profile?: UserProfileData;
-}
-
-export const PageSchema = yup.object().shape({
-  id: yup.string().required(),
-  url: yup.string().url().required(),
-  uid: yup.string().required(),
-  title: yup.string().notRequired(),
-  status: yup.string().nullable(),
-  metaKeywords: yup.array().of(yup.string()).nullable().notRequired(),
-  metaDescription: yup.string().nullable().notRequired(),
-  metaTitle: yup.string().nullable().notRequired(),
-  metaAuthor: yup.string().nullable().notRequired(),
-  metaPublisher: yup.string().nullable().notRequired(),
-  mainText: yup.string().nullable().notRequired(),
-  metaIconUrl: yup.string().nullable().notRequired(),
-  mainImageUrl: yup.string().nullable().notRequired(),
-  processed: yup.object().shape({
-    html: yup.boolean().nullable().notRequired(),
+export const PageSchema = zod.object({
+  id: zod.string(),
+  url: zod.string().url(),
+  uid: zod.string(),
+  title: zod.string().optional(),
+  status: zod.string().nullable(),
+  metaKeywords: zod.array(zod.string()).nullable().optional(),
+  metaDescription: zod.string().nullable().optional(),
+  metaTitle: zod.string().nullable().optional(),
+  metaAuthor: zod.string().nullable().optional(),
+  metaPublisher: zod.string().nullable().optional(),
+  mainText: zod.string().nullable().optional(),
+  metaIconUrl: zod.string().nullable().optional(),
+  mainImageUrl: zod.string().nullable().optional(),
+  processed: zod.object({
+    html: zod.boolean().nullable().optional(),
   }),
 });
 
-export type PageData = yup.InferType<typeof PageSchema>;
+export type PageData = zod.infer<typeof PageSchema>;

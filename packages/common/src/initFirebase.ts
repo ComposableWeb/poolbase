@@ -8,7 +8,10 @@ const config = {
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   projectId: process.env.FIREBASE_PROJECT_ID,
   databaseURL:
-    typeof location !== 'undefined' && location.hostname && location.hostname === 'localhost'
+    typeof location !== 'undefined' &&
+    location.hostname &&
+    location.hostname === 'localhost' &&
+    process.env.NODE_ENV === 'test'
       ? 'http://127.0.0.1:8080'
       : process.env.FIREBASE_DATABASE_URL,
   storageBucket: 'poolbasefyi.appspot.com',
@@ -18,7 +21,12 @@ const config = {
 };
 const app = !firebase.apps.length ? firebase.initializeApp(config) : firebase.apps[0];
 const firestore = firebase.firestore(app);
-if (typeof location !== 'undefined' && location.hostname && location.hostname === 'localhost') {
+if (
+  typeof location !== 'undefined' &&
+  location.hostname &&
+  location.hostname === 'localhost' &&
+  process.env.NODE_ENV === 'test'
+) {
   firestore.settings({
     host: 'localhost:8080',
     ssl: false,

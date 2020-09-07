@@ -1,19 +1,21 @@
 import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { auth } from '@poolbase/common';
 import logo from '../../assets/img/logo.svg';
 import './Popup.css';
 
 export const PopupPage: React.FC = () => {
   const { t } = useTranslation('common');
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user, loading);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup</code> and save to reload.
-        </p>
-      </header>
-      <h1>{t('siteTitle')}</h1>
+      <h2>{t('siteTitle')}</h2>
+      {user && user.email}
+      {loading && 'Loading'}
+      {error && 'Error'}
     </div>
   );
 };

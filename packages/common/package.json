@@ -30,23 +30,24 @@
   "author": "Andreas Adam <andreas.sahle@gmail.com> (https://pixelmord.de/)",
   "license": "MIT",
   "devDependencies": {
-    "@google-cloud/firestore": "^3.7.5",
-    "@types/eslint": "^6.8.0",
+    "@google-cloud/firestore": "^4.2.0",
+    "@types/eslint": "^7.2.2",
     "@types/eslint-plugin-prettier": "^3.1.0",
-    "@types/prettier": "^2.0.0",
-    "@types/yup": "^0.28.0",
-    "@typescript-eslint/eslint-plugin": "^2.31.0",
-    "@typescript-eslint/parser": "^2.31.0",
-    "eslint": "^6.8.0",
+    "@types/prettier": "^2.1.0",
+    "@types/yup": "^0.29.6",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "prettier": "^2.0.5"
+    "eslint-plugin-react": "^7.20.6",
+    "prettier": "^2.1.1"
   },
   "dependencies": {
-    "consola": "^2.11.3",
+    "consola": "^2.15.0",
     "dotenv": "^8.2.0",
-    "firebase": "^7.14.2",
-    "yup": "^0.28.5"
+    "firebase": "^7.19.1",
+    "yup": "^0.29.3",
+    "zod": "^1.10.3"
   }
 }

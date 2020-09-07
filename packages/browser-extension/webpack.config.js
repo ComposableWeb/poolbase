@@ -5,6 +5,7 @@ const webpack = require('webpack'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   WriteFilePlugin = require('write-file-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 // load the secrets
 const alias = {
@@ -61,6 +62,7 @@ const options = {
     extensions: fileExtensions.map((extension) => '.' + extension).concat([".wasm", ".ts", ".tsx", ".css", ".mjs", ".cjs", ".js", ".json"]),
   },
   plugins: [
+    new Dotenv({path: '../../.env'}),
     new webpack.ProgressPlugin(),
     // clean the build folder
     new CleanWebpackPlugin({
@@ -69,8 +71,8 @@ const options = {
     }),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new CopyWebpackPlugin(
-      [
+    new CopyWebpackPlugin({
+      patterns: [
         {
           from: 'src/manifest.json',
           to: path.join(__dirname, 'build'),
@@ -86,37 +88,17 @@ const options = {
             );
           },
         },
-      ],
-      {
-        logLevel: 'info',
-        copyUnmodified: true,
-      }
-    ),
-    new CopyWebpackPlugin(
-      [
         {
           from: 'src/pages/Content/content.styles.css',
           to: path.join(__dirname, 'build'),
           force: true,
         },
-      ],
-      {
-        logLevel: 'info',
-        copyUnmodified: true,
-      }
-    ),
-    new CopyWebpackPlugin(
-      [
         {
           from: 'src/assets/img/',
           to: path.join(__dirname, 'build'),
           force: true,
         },
-      ],
-      {
-        logLevel: 'info',
-        copyUnmodified: true,
-      }
+      ]}
     ),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.html'),
