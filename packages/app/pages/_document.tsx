@@ -14,10 +14,7 @@ export default class CustomDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-          />
+
           <meta name="description" content="All your information in one place" />
           <meta name="keywords" content="bookmarks, groups, collaboration, search, information management" />
 
@@ -44,7 +41,7 @@ export default class CustomDocument extends Document {
 
           <meta name="nightmode" content="enable" />
 
-          <meta name="viewport" content="uc-fitscreen=yes" />
+
 
           <meta name="layoutmode" content="fitscreen" />
 

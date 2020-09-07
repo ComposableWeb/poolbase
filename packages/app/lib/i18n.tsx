@@ -43,7 +43,7 @@ export const I18n: React.FC<{ locale: string; lngDict: Record<string, string> }>
   const i18nWrapper = {
     activeLocale: activeLocaleRef.current,
     t: (key, ...args) => i18n.t(key, ...args),
-    locale: (l, dict) => {
+    locale: (l, dict = null) => {
       i18n.locale(l);
       activeLocaleRef.current = l;
       if (dict) {

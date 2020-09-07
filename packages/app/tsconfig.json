@@ -12,12 +12,13 @@
     "noEmit": true,
     "allowJs": true,
     "strict": false,
+    "strictNullChecks": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "components/*": ["components"],
-      "hooks/*": ["hooks"],
-      "lib/*": ["lib"]
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"]
     }
   },
   "exclude": ["node_modules"],

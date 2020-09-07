@@ -15,7 +15,7 @@ export default function Header(): JSX.Element {
       <NavIconButton
         aria-label="Add URL"
         onClick={(): void => {
-          Router.push('/add-url');
+          Router.push('/en/add-url');
         }}
       >
         <Add />

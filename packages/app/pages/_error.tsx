@@ -11,7 +11,7 @@ const Error: NextPage<ErrorPageProps> = ({ statusCode }: ErrorPageProps) => {
   const i18n = useI18n();
 
   useEffect(() => {
-    i18n.locale('en', EN);
+    i18n.locale('en');
   }, []);
 
   return (

@@ -26,7 +26,7 @@ const nextConfiguration = {
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_PUBLIC_API_KEY: process.env.FIREBASE_PUBLIC_API_KEY,
   },
-  experimental: {
+
     redirects() {
       return [
         {
@@ -36,6 +36,6 @@ const nextConfiguration = {
         },
       ];
     },
-  },
+
 };
 module.exports = withPlugins([withTM, withPWA, withBundleAnalyzer], nextConfiguration);

@@ -12,10 +12,16 @@ import PageLayout from 'components/PageLayout';
 export const App: React.FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
   const [user, loading, error] = useAuthUserProfile();
+
   return (
     <ThemeProvider theme={poolbaseTheme}>
       <Head>
         <title>Poolbase</title>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="viewport" content="uc-fitscreen=yes" />
       </Head>
       <I18n lngDict={pageProps.lngDict} locale={pageProps.lng}>
         {loading && <div>Loading...</div>}
