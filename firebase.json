@@ -1,36 +1,23 @@
 {
+  "emulators": {
+    "firestore": {
+      "host": "127.0.0.1",
+      "port": "8080"
+    },
+    "functions": {
+      "host": "127.0.0.1",
+      "port": "5001"
+    },
+    "ui": {
+      "enabled": true
+    }
+  },
   "firestore": {
-    "rules": "firestore.rules",
+    "rules": "packages/firebase/rules/firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "functions": {
-    "source": "dist/app/functions",
-    "predeploy": ["yarn build"]
-  },
-  "hosting": [
-    {
-      "target": "app",
-      "public": "dist/app/functions/public",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "function": "next"
-        }
-      ],
-      "predeploy": "yarn build"
-    },
-    {
-      "target": "landing",
-      "public": "dist/landing/public",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ],
-      "predeploy": "yarn build"
-    }
-  ]
+    "source": "dist/functions",
+    "predeploy": ["yarn workspace @poolbase/firebase build"]
+  }
 }

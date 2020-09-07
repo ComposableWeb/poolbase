@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext", "es2018"],
+    "module": "esnext",
+    "noEmit": true,
+    "allowJs": true,
+    "strict": false,
+    "strictNullChecks": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "env.js", "next.config.js", "babel.config.js"]
+}

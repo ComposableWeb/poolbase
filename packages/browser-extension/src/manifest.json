@@ -1,7 +1,7 @@
 {
-  "name": "Save to Poolbase",
+  "name": "Poolbase",
   "version": "0.1.0",
-  "description": "Extension for saving pages to poolbase and enhancing your search experience",
+  "description": "Save pages and highlighted text to poolbase and build a knowledge base while you research the web",
   "homepage_url": "https://app.poolbase.fyi",
   "icons": {
     "16": "icon16.png",
@@ -13,7 +13,6 @@
     "page": "background.html"
   },
   "browser_action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "19": "icon19.png",
       "38": "icon38.png"
@@ -29,11 +28,8 @@
       "css": ["content.styles.css"]
     }
   ],
-  "web_accessible_resources": [
-    "content.styles.css",
-    "icon128.png",
-    "icon38.png"
-  ],
+  "web_accessible_resources": ["content.styles.css", "icon128.png", "icon38.png"],
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": ["identity"]
 }

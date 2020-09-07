@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es6", "dom", "es2018"],
+    "module": "commonjs",
+    "strict": true,
+    "target": "es2017",
+    "baseUrl": ".",
+    "outDir": "../../dist/functions"
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.js"]
+}

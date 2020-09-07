@@ -25,9 +25,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Node Dependencies
-        run: yarn install --frozen-lockfile # will run `yarn install` command
+        run: yarn install --frozen-lockfile
+      - name: Build Styleguide
+        run: yarn workspace design-system styleguide:build
       - name: Do Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn semantic-release # will run `sem` command
-
+        run: yarn semantic-release

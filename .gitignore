@@ -63,8 +63,9 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+!.env
 .env.test
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -92,3 +93,5 @@ typings/
 dist/
 
 .bic_cache
+
+serviceAccountKey.json

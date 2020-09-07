@@ -1,0 +1,5 @@
+{
+  "siteTitle": "Poolbase - Produktivität durch eine sich selbst dukumentierende Wissensdatenbank",
+  "error-with-status": "Auf dem Server ist ein Fehler ({{statusCode}}) aufgetreten",
+  "error-without-status": "Auf dem Server ist ein Fehler aufgetreten"
+}
