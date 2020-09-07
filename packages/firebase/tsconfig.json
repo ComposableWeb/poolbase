@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "skipLibCheck": true,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -10,13 +11,10 @@
     "lib": ["es6", "dom", "es2018"],
     "module": "commonjs",
     "strict": true,
-    "sourceMap": true,
     "target": "es2017",
     "baseUrl": ".",
-    "paths": {
-      "@poolbase/common": ["../common"]
-    }
+    "outDir": "../../dist/functions"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.js"]
 }

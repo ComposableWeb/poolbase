@@ -1,11 +1,11 @@
 import puppeteer, { ConsoleMessage } from 'puppeteer';
 import { bucket } from '../initFirebaseAdmin';
 
-import { PageData } from '@poolbase/common';
+import { PageData } from '../common';
 
-interface ScrapeData extends Partial<PageData> {
+type ScrapeData = Partial<PageData> & {
   'processed.html': boolean;
-}
+};
 
 export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeData> => {
   const saveScreenShot = async (imageBuffer: string | Buffer, pageId: string, size = 'preview'): Promise<string> => {
@@ -100,7 +100,6 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
     await page.waitFor(2000); // give page 2 seconds to load/render (SPA)
     const extractedFromBody = await page.evaluate(() => {
       const findMainContentElement = (): HTMLElement | null => {
-        console.debug('findMainContentElement' + ' ' + document.querySelector('body')?.innerText.substring(0, 120));
         const body = document.querySelector('body');
         const bodyText = document.querySelector('body')?.innerText;
         let main = document.querySelector('main');
@@ -123,7 +122,6 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
       };
       const main = findMainContentElement();
       const getMainText = (): string | null => {
-        console.debug('getMainText' + ' ' + main?.innerText.substring(0, 100));
         return main?.innerText || null;
       };
       const mainText = getMainText();
@@ -131,7 +129,7 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
         if (!main) {
           return null;
         }
-        console.debug('getMainImageUrlFromMainElement' + ' ' + main.getElementsByTagName('img').length);
+
         const _score = (image: HTMLImageElement): number => {
           let score = 0;
           let src;
@@ -210,12 +208,10 @@ export const scrapeHTML = async (url: string, pageId: string): Promise<ScrapeDat
       const getMainImageUrl = (): string | null => {
         let mainImage = document.querySelector('meta[property="og:image"]');
         if (mainImage) {
-          console.debug('getMainImageUrl' + ' ' + mainImage.getAttribute('content')?.trim());
           return mainImage.getAttribute('content')?.trim() || null;
         }
         mainImage = document.querySelector('meta[name="twitter:image"]');
         if (mainImage) {
-          console.debug('getMainImageUrl' + ' ' + mainImage.getAttribute('content')?.trim());
           return mainImage.getAttribute('content')?.trim() || null;
         }
         if (main) {

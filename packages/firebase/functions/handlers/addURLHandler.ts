@@ -1,10 +1,12 @@
 import * as functions from 'firebase-functions';
+import * as zod from 'zod';
 import { DocumentReference, DocumentData, FieldValue } from '@google-cloud/firestore';
 
 import admin, { firestore } from '../initFirebaseAdmin';
 
-import { PageData } from '@poolbase/common';
-type URLData = Pick<PageData, 'url' | 'title'>;
+import { PageSchema, PageData } from '../common';
+const URLDataSchema = PageSchema.pick({ url: true, title: true });
+type URLData = zod.infer<typeof URLDataSchema>;
 
 export const addURLHandler = functions.region('europe-west1').https.onCall(
   async (data: URLData, context): Promise<void | DocumentReference<DocumentData>> => {

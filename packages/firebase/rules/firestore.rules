@@ -40,10 +40,10 @@ service cloud.firestore {
     // app user accounts (private)
     match /users/{userId} {
       allow read: if isAuthenticated()
-                    && isOwner();
+                    && userId == request.auth.uid;
       allow create: if false; // created only by cloud function (admin)
       allow update: if isAuthenticated()
-                    && isOwner();
+                    && userId == request.auth.uid;
       allow delete: if false;
     }
     // public user profiles
