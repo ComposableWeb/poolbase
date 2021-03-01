@@ -8967,30 +8967,16 @@ docsify-server-renderer@>=4:
     node-fetch "^2.6.0"
     resolve-pathname "^3.0.0"
 
-docsify@^4.10.2, docsify@^4.11.2:
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.11.4.tgz#cd1d4b4eaf84f1c9bf090c64fbc32e4b3bfc1dea"
-  integrity sha512-Qwt98y6ddM2Wb46gRH/zQpEAvw70AlIpzVlB9Wi2u2T2REg9O+bXMpJ27F5TaRTn2bD6SF1VyZYNUfimpihZwQ==
+docsify@^4.10.2, docsify@^4.11.2, docsify@^4.11.6:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.12.0.tgz#ac08a5b4a17bd80413b22e5201e35678cdd7e57f"
+  integrity sha512-oLr48dLeJ8sTVQfL8HLFqd2sPPG8DNAOvYAXXJQr/+/K9uC2KDhoeu+GGj5U2uFGR5czF3oLvqNBxhEElg1wGw==
   dependencies:
-    dompurify "^2.0.8"
-    marked "^0.7.0"
-    medium-zoom "^1.0.5"
-    opencollective-postinstall "^2.0.2"
-    prismjs "^1.19.0"
-    strip-indent "^3.0.0"
-    tinydate "^1.0.0"
-    tweezer.js "^1.4.0"
-
-docsify@^4.11.6:
-  version "4.11.6"
-  resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.11.6.tgz#60334a398cf8b3abd7258863a9764f2518458684"
-  integrity sha512-6h3hB2Ni7gpOeu1fl1sDOmufuplIDmeFHsps17Qbg9VOS3h2tJ63FiW2w5oAydGyzaLrqu58FV7Mg4b6p0z9mg==
-  dependencies:
-    dompurify "^2.0.8"
-    marked "^1.1.1"
+    dompurify "^2.2.6"
+    marked "^1.2.9"
     medium-zoom "^1.0.6"
     opencollective-postinstall "^2.0.2"
-    prismjs "^1.19.0"
+    prismjs "^1.23.0"
     strip-indent "^3.0.0"
     tinydate "^1.3.0"
     tweezer.js "^1.4.0"
@@ -9104,10 +9090,10 @@ domhandler@^2.3.0:
   dependencies:
     domelementtype "1"
 
-dompurify@^2.0.8:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.0.12.tgz#284a2b041e1c60b8e72d7b4d2fadad36141254ae"
-  integrity sha512-Fl8KseK1imyhErHypFPA8qpq9gPzlsJ/EukA6yk9o0gX23p1TzC+rh9LqNg1qvErRTc0UNMYlKxEGSfSh43NDg==
+dompurify@^2.0.8, dompurify@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.2.6.tgz#54945dc5c0b45ce5ae228705777e8e59d7b2edc4"
+  integrity sha512-7b7ZArhhH0SP6W2R9cqK6RjaU82FZ2UPM7RO8qN1b1wyvC/NY1FNWcX1Pu00fFOAnzEORtwXe4bPaClg6pUybQ==
 
 domutils@1.5.1:
   version "1.5.1"
@@ -15365,15 +15351,10 @@ marked@^0.7.0:
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
   integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
 
-marked@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-1.1.0.tgz#62504ad4d11550c942935ccc5e39d64e5a4c4e50"
-  integrity sha512-EkE7RW6KcXfMHy2PA7Jg0YJE1l8UPEZE8k45tylzmZM30/r1M1MUXWQfJlrSbsTeh7m/XTwHbWUENvAJZpp1YA==
-
-marked@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-1.1.1.tgz#e5d61b69842210d5df57b05856e0c91572703e6a"
-  integrity sha512-mJzT8D2yPxoPh7h0UXkB+dBj4FykPJ2OIfxAWeIHrvoHDkFxukV/29QxoFQoPM6RLEwhIFdJpmKBlqVM3s2ZIw==
+marked@^1.0.0, marked@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-1.2.9.tgz#53786f8b05d4c01a2a5a76b7d1ec9943d29d72dc"
+  integrity sha512-H8lIX2SvyitGX+TRdtS06m1jHMijKN/XjfH6Ooii9fvxMlh8QdqBfBDkGUpMWH2kQNrtixjzYUa3SH8ROTgRRw==
 
 material-design-lite@^1.2.0:
   version "1.3.0"
@@ -15420,11 +15401,6 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
-
-medium-zoom@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.5.tgz#81413dda20ccdd857141ff420cfab788dd32e20e"
-  integrity sha512-aLGa6WlTuFKWvH88bqTrY5ztJMN+D0hd8UX6BYc4YSoPayppzETjZUcdVcksgaoQEMg4cZSmXPg846fTp2rjRQ==
 
 medium-zoom@^1.0.6:
   version "1.0.6"
@@ -18386,10 +18362,10 @@ pretty-format@^26.4.2:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
-prismjs@^1.17.1, prismjs@^1.19.0:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
-  integrity sha512-AEDjSrVNkynnw6A+B1DsFkd6AVdTnp+/WoUixFRULlCLZVRZlVQMVWio/16jv7G1FscUxQxOQhWwApgbnxr6kQ==
+prismjs@^1.17.1, prismjs@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
+  integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   optionalDependencies:
     clipboard "^2.0.0"
 
@@ -21717,7 +21693,7 @@ tiny-warning@^1.0.2:
   resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
   integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
-tinydate@^1.0.0, tinydate@^1.3.0:
+tinydate@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/tinydate/-/tinydate-1.3.0.tgz#e6ca8e5a22b51bb4ea1c3a2a4fd1352dbd4c57fb"
   integrity sha512-7cR8rLy2QhYHpsBDBVYnnWXm8uRTr38RoZakFSW7Bs7PzfMPNZthuMLkwqZv7MTu8lhQ91cOFYS5a7iFj2oR3w==
